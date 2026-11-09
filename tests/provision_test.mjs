@@ -1,0 +1,7 @@
+import assert from'node:assert/strict';
+import{StorageClient,BACKUP_BYTES,crc32,get32,put32}from'../web/storage-protocol.mjs';
+const data=Uint8Array.from({length:BACKUP_BYTES},(_,i)=>(i*17)&255);let offset=0,mounted=0,writes=0,reads=0;
+const client=new StorageClient(async p=>{const cmd=p[4];let values=[],bytes=[];if(cmd===1)values=[1,mounted,123,77,BACKUP_BYTES,offset,offset===BACKUP_BYTES?crc32(data):0];else if(cmd===2){offset=0;values=[77,BACKUP_BYTES,0];}else if(cmd===3){assert.equal(get32(p,7),77);const off=get32(p,12),n=get32(p,17);assert.equal(off,offset);assert.ok(n<=128);values=[77,off,n];bytes=[...data.subarray(off,off+n)].flatMap(b=>[b&127,b>>7]);offset+=n;reads++;}else if(cmd===4){assert.equal(offset,BACKUP_BYTES);assert.equal(get32(p,12),crc32(data));assert.equal(get32(p,22),0x434f4e46);mounted=1;writes++;}else assert.fail();return new Uint8Array([...p.subarray(0,4),cmd|64,p[5],p[6],0,...values.flatMap(put32),...bytes]);});
+await assert.rejects(client.provision('ERASE'));await client.readBackup();assert.equal(writes,0);assert.equal(reads,BACKUP_BYTES/128);await assert.rejects(client.provision('ERASE'));
+const corrupt=data.slice();corrupt[100]^=1;assert.throws(()=>client.verifySavedFile(corrupt));client.verifySavedFile(data);await assert.rejects(client.provision('yes'));assert.equal(writes,0);await client.provision('ERASE');assert.equal(writes,1);await assert.rejects(client.provision('ERASE'));
+console.log('Mock provisioning: full backup, saved-file byte verification, confirmation gate and single use passed. No MIDI access.');

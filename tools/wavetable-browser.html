@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TLBX-1 Wavetable Browser</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--line:#262b36;--text:#e6e8ee;--dim:#8a92a6;--acc:#ff9f3a;--acc2:#a78bfa;--good:#4ade80;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:13px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+button,select,input{font:inherit;color:var(--text);background:#1f2430;border:1px solid var(--line);border-radius:6px;padding:5px 9px}
+button{cursor:pointer}button:hover{border-color:#3a4252}button.on{background:var(--acc);color:#111;border-color:var(--acc)}
+input[type=range]{padding:0;accent-color:var(--acc);width:100%}
+#app{display:grid;grid-template-columns:340px 1fr;height:100vh}
+#side{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+#side header{padding:12px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+#side h1{font-size:15px;margin:0;letter-spacing:.02em}#side h1 span{color:var(--acc)}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#list{overflow:auto;flex:1;min-height:0}
+.grp{position:sticky;top:0;background:#12151b;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-bottom:1px solid var(--line);z-index:1}
+.item{display:grid;grid-template-columns:20px 1fr auto;gap:6px;align-items:center;padding:5px 12px;cursor:pointer;border-bottom:1px solid #1b1f28}
+.item:hover{background:#1c212b}.item.sel{background:#2a2216;outline:1px solid var(--acc)}
+.item .star{color:#444;font-size:15px;line-height:1}.item.starred .star{color:var(--acc)}
+.item .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item .meta{color:var(--dim);font-size:11px;white-space:nowrap}
+#main{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:auto}
+section{padding:12px 16px;border-bottom:1px solid var(--line)}
+#title{font-size:18px;font-weight:600}#path{color:var(--dim);font-size:12px;word-break:break-all}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chip{background:#1f2430;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:11px;color:var(--dim)}.chip b{color:var(--text);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px 18px}
+.ctl label{display:flex;justify-content:space-between;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}.ctl label b{color:var(--text);font-weight:500;text-transform:none;letter-spacing:0}
+canvas{width:100%;display:block;background:#0b0d11;border:1px solid var(--line);border-radius:8px}
+#kb{position:relative;height:110px;user-select:none;touch-action:none}
+.k{position:absolute;top:0;border:1px solid #333;border-radius:0 0 5px 5px;cursor:pointer}
+.k.w{background:#e9e9ee;height:110px;z-index:1}.k.b{background:#222;height:66px;z-index:2}
+.k.down.w{background:var(--acc)}.k.down.b{background:#c2702a}
+.k span{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:10px;color:#777}
+.hint{color:var(--dim);font-size:12px}.warn{color:var(--bad)}.ok{color:var(--good)}
+#budget .bar{height:8px;background:#1f2430;border-radius:4px;overflow:hidden;margin-top:6px}#budget .fill{height:100%;background:var(--good)}
+#empty{padding:40px;color:var(--dim);max-width:640px}
+textarea{width:100%;min-height:44px;background:#1f2430;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px;font:inherit;resize:vertical}
+kbd{background:#1f2430;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;font-size:11px}
+</style>
+</head>
+<body>
+<div id="app">
+ <aside id="side">
+  <header>
+   <h1>TLBX-1 <span>Wavetable Browser</span></h1>
+   <div class="row">
+    <label class="row" style="margin:0"><button id="pick">Open folder…</button><input id="dir" type="file" webkitdirectory multiple hidden></label>
+    <button id="midi" title="Play from a MIDI keyboard; mod wheel sweeps position">MIDI</button>
+   </div>
+   <input id="q" placeholder="Filter by name or folder…">
+   <div class="row">
+    <select id="folder"><option value="">All folders</option></select>
+    <select id="kind"><option value="">Any type</option><option value="single">Single-cycle</option><option value="multi">Multi-frame</option></select>
+    <button id="staronly" title="Show starred only">★ only</button>
+   </div>
+   <div class="hint" id="count">No folder loaded.</div>
+   <div class="row"><button id="audiobtn">Enable audio</button><span class="hint" id="audiostat">Audio off: click Enable audio or play a note.</span></div>
+  </header>
+  <div id="list"></div>
+ </aside>
+ <main id="main">
+  <div id="empty">
+   <h2 style="color:var(--text)">Open your wavetable folder</h2>
+   <p>Click <b>Open folder…</b> and choose this repository’s<br><code>assets/factory/wavetables</code><br>(or any folder of .wav files). Files are read locally in your browser; nothing is uploaded.</p>
+   <p>Frames are read at their original sample length (no resampling to the sound card rate), using the first channel, the same way the firmware's table packer does.</p>
+  </div>
+  <div id="view" hidden>
+   <section>
+    <div class="row" style="justify-content:space-between">
+     <div><div id="title">—</div><div id="path"></div></div>
+     <div class="row"><button id="prev" title="Previous (↑)">↑</button><button id="next" title="Next (↓)">↓</button><button id="star" title="Star (Shift+S)">☆ Star</button><button id="drone" title="Hold a test note (Space)">Drone</button><button id="panic">Stop</button></div>
+    </div>
+    <div class="chips" id="chips"></div>
+   </section>
+   <section>
+    <canvas id="wave" height="180"></canvas>
+    <div style="height:8px"></div>
+    <canvas id="over" height="120"></canvas>
+   </section>
+   <section class="grid">
+    <div class="ctl"><label>Frame size <b id="fsv"></b></label><select id="fs" style="width:100%"><option value="auto">Auto</option><option value="whole">Whole file = 1 cycle</option><option>128</option><option>256</option><option>512</option><option>1024</option><option>2048</option><option>4096</option></select></div>
+    <div class="ctl"><label>Position <b id="posv">0</b></label><input id="pos" type="range" min="0" max="1" step="0.001" value="0"></div>
+    <div class="ctl"><label>Scan rate (Hz) <b id="lrv">0</b></label><input id="lr" type="range" min="0" max="4" step="0.01" value="0"></div>
+    <div class="ctl"><label>Scan depth <b id="ldv">0</b></label><input id="ld" type="range" min="0" max="1" step="0.01" value="0"></div>
+    <div class="ctl"><label>Frame morph</label><select id="morph" style="width:100%"><option value="1">Crossfade frames</option><option value="0">Step (nearest frame)</option></select></div>
+    <div class="ctl"><label>Firmware preview <b id="resv"></b></label><select id="res" style="width:100%"><option value="0">Off (original)</option><option value="512">512 samples / frame, 16-bit</option><option value="256" selected>256 samples / frame, 16-bit</option><option value="128">128 samples / frame, 16-bit</option><option value="-1">Native length, 16-bit (current firmware)</option></select></div>
+    <div class="ctl"><label>Attack <b id="atv"></b></label><input id="at" type="range" min="0.001" max="2" step="0.001" value="0.005"></div>
+    <div class="ctl"><label>Release <b id="rlv"></b></label><input id="rl" type="range" min="0.01" max="4" step="0.01" value="0.35"></div>
+    <div class="ctl"><label>Low-pass <b id="lpv"></b></label><input id="lp" type="range" min="0" max="1" step="0.001" value="1"></div>
+    <div class="ctl"><label>Volume <b id="vlv"></b></label><input id="vl" type="range" min="0" max="1" step="0.01" value="0.5"></div>
+    <div class="ctl"><label>Octave <b id="ocv"></b></label><input id="oc" type="range" min="-3" max="3" step="1" value="0"></div>
+    <div class="ctl"><label>Level</label><select id="norm" style="width:100%"><option value="1">Normalize each table</option><option value="0">As stored</option></select></div>
+   </section>
+   <section>
+    <div id="kb"></div>
+    <p class="hint">Keys <kbd>Z</kbd>–<kbd>M</kbd> and <kbd>Q</kbd>–<kbd>U</kbd> play notes · <kbd>↑</kbd><kbd>↓</kbd> next/previous table (keeps playing) · <kbd>Space</kbd> drone · <kbd>Shift</kbd>+<kbd>S</kbd> star · <kbd>←</kbd><kbd>→</kbd> nudge position · MIDI mod wheel sweeps position.</p>
+   </section>
+   <section>
+    <div class="ctl"><label>Curation note for this table</label><textarea id="note" placeholder="e.g. great for pads; Wavestation-ish; trim frames 4–12…"></textarea></div>
+   </section>
+   <section id="budget">
+    <div class="row" style="justify-content:space-between"><b>Starred set</b><div class="row"><button id="export">Export starred (.json)</button><label class="row" style="margin:0"><button id="impbtn">Import…</button><input id="imp" type="file" accept=".json" hidden></label></div></div>
+    <div id="bud" class="hint"></div><div class="bar"><div class="fill" id="budfill" style="width:0"></div></div>
+   </section>
+  </div>
+ </main>
+</div>
+<script>
+'use strict';
+/* ---------- WAV parsing (first channel, original frame length) ---------- */
+function parseChunks(buf){
+  const dv=new DataView(buf);if(buf.byteLength<12||dv.getUint32(0,false)!==0x52494646||dv.getUint32(8,false)!==0x57415645)throw Error('Not a RIFF/WAVE file');
+  const out={};let p=12;
+  while(p+8<=buf.byteLength){const id=String.fromCharCode(dv.getUint8(p),dv.getUint8(p+1),dv.getUint8(p+2),dv.getUint8(p+3));const size=dv.getUint32(p+4,true);
+    out[id]={offset:p+8,size};if(id==='data')break;p+=8+size+(size&1);}
+  const f=out['fmt '];if(!f)throw Error('No fmt chunk');
+  let format=dv.getUint16(f.offset,true);const channels=dv.getUint16(f.offset+2,true),rate=dv.getUint32(f.offset+4,true),align=dv.getUint16(f.offset+12,true),bits=dv.getUint16(f.offset+14,true);
+  if(format===0xFFFE&&f.size>=26)format=dv.getUint16(f.offset+24,true);
+  let clm=0;if(out['clm ']){const c=out['clm '];const txt=new TextDecoder().decode(new Uint8Array(buf,c.offset,Math.min(c.size,64,buf.byteLength-c.offset)));const m=/<!>(\d+)/.exec(txt);if(m)clm=+m[1];}
+  const d=out['data'];const frames=d?Math.floor(d.size/align):0;
+  return{format,channels,rate,align,bits,clm,frames,dataOffset:d?d.offset:0,dataSize:d?d.size:0};
+}
+function decodeSamples(buf,h){
+  const dv=new DataView(buf);const n=Math.min(h.frames,Math.floor((buf.byteLength-h.dataOffset)/h.align));const out=new Float32Array(n);
+  const b=h.bits/8;for(let i=0;i<n;i++){const o=h.dataOffset+i*h.align;let v;
+    if(h.format===3)v=b===8?dv.getFloat64(o,true):dv.getFloat32(o,true);
+    else if(b===1)v=(dv.getUint8(o)-128)/128;
+    else if(b===2)v=dv.getInt16(o,true)/32768;
+    else if(b===3){let x=dv.getUint8(o)|dv.getUint8(o+1)<<8|dv.getInt8(o+2)<<16;v=x/8388608;}
+    else v=dv.getInt32(o,true)/2147483648;
+    out[i]=v;}
+  return out;
+}
+function autoFrame(h){
+  if(h.clm>0&&h.frames%h.clm===0)return{size:h.clm,why:'clm chunk'};
+  if(h.frames<=4096)return{size:h.frames,why:'single cycle'};
+  for(const s of[2048,1024,4096,512,256])if(h.frames%s===0)return{size:s,why:'divides by '+s};
+  return{size:h.frames,why:'no frame grid — whole file'};
+}
+/* ---------- Audio engine (AudioWorklet) ---------- */
+class WTEngine{
+constructor(sr){this.sr=sr;this.t=null;this.fs=1;this.fc=1;this.v=[];this.p={pos:0,lfoRate:0,lfoDepth:0,att:.005,rel:.35,gain:.5,morph:1};this.lfo=0;this.last=0;this.tick=0;}
+msg(m){
+ if(m.type==='table'){this.t=m.data;this.fs=m.frameSize;this.fc=m.frames;}
+ else if(m.type==='on'){this.v=this.v.filter(x=>x.id!==m.id);if(this.v.length>=16)this.v.shift();this.v.push({id:m.id,ph:0,inc:m.freq/this.sr,g:0,gate:1,vel:m.vel});}
+ else if(m.type==='off'){for(const x of this.v)if(x.id===m.id)x.gate=0;}
+ else if(m.type==='panic'){this.v=[];}
+ else if(m.type==='params'){Object.assign(this.p,m.p);}}
+render(L,n){L.fill(0);const P=this.p,sr=this.sr;
+ const a=this.last;this.lfo+=P.lfoRate*n/sr;this.lfo-=Math.floor(this.lfo);
+ let b=P.pos+P.lfoDepth*.5*Math.sin(2*Math.PI*this.lfo);b=b<0?0:b>1?1:b;this.last=b;
+ const t=this.t;if(t&&this.v.length){const fs=this.fs,fc=this.fc,ga=1/Math.max(1,P.att*sr),gr=1/Math.max(1,P.rel*sr);
+  for(const x of this.v){for(let i=0;i<n;i++){
+   const pos=(a+(b-a)*i/n)*(fc-1);let f0=Math.floor(pos),fr=pos-f0;if(f0>=fc-1){f0=fc-1;fr=0;}if(!P.morph){f0=Math.round(pos);fr=0;}
+   const f1=f0+1<fc?f0+1:f0,b0=f0*fs,b1=f1*fs,idx=x.ph*fs,i0=idx|0,q=idx-i0,i1=i0+1<fs?i0+1:0;
+   let s=t[b0+i0]+(t[b0+i1]-t[b0+i0])*q;if(fr>0){const s1=t[b1+i0]+(t[b1+i1]-t[b1+i0])*q;s+=(s1-s)*fr;}
+   if(x.gate){x.g+=ga;if(x.g>1)x.g=1;}else{x.g-=gr;if(x.g<=0){x.g=0;x.dead=1;break;}}
+   L[i]+=s*x.g*x.vel*P.gain;x.ph+=x.inc;if(x.ph>=1)x.ph-=1;}}
+  this.v=this.v.filter(x=>!x.dead);}
+ return b;}}
+const WORKLET=WTEngine.toString()+`
+class WT extends AudioWorkletProcessor{constructor(){super();this.e=new WTEngine(sampleRate);this.k=0;this.port.onmessage=m=>this.e.msg(m.data);}
+process(_,outs){const L=outs[0][0],R=outs[0][1];const pos=this.e.render(L,L.length);if(R)R.set(L);if(++this.k%6===0)this.port.postMessage({pos});return true;}}
+registerProcessor('wt',WT);`;
+let ctx,node,lpf,comp;
+let audioMode='',starting=null;
+const send=m=>{if(node)node.port.postMessage(m);};
+function audio(){
+  if(ctx&&node){return ctx.state!=='running'?ctx.resume():Promise.resolve();}
+  if(starting)return starting;
+  ctx=ctx||new AudioContext();
+  starting=(async()=>{
+    lpf=ctx.createBiquadFilter();lpf.type='lowpass';comp=ctx.createDynamicsCompressor();comp.threshold.value=-6;comp.ratio.value=12;
+    lpf.connect(comp).connect(ctx.destination);
+    try{
+      if(!ctx.audioWorklet)throw Error('AudioWorklet unavailable');
+      const url=URL.createObjectURL(new Blob([WORKLET],{type:'text/javascript'}));
+      await ctx.audioWorklet.addModule(url);
+      const w=new AudioWorkletNode(ctx,'wt',{numberOfInputs:0,outputChannelCount:[2]});
+      w.port.onmessage=e=>{livePos=e.data.pos;};w.connect(lpf);node=w;audioMode='AudioWorklet';
+    }catch(err){
+      /* Pages opened from a local file can refuse worklet modules: render on the main thread instead. */
+      const eng=new WTEngine(ctx.sampleRate),sp=ctx.createScriptProcessor(1024,0,2);
+      sp.onaudioprocess=e=>{const L=e.outputBuffer.getChannelData(0);livePos=eng.render(L,L.length);e.outputBuffer.getChannelData(1).set(L);};
+      sp.connect(lpf);node={port:{postMessage:m=>eng.msg(m)}};audioMode='fallback ('+err.message+')';
+    }
+    if(ctx.state!=='running')await ctx.resume();
+    sendParams();if(table)send({type:'table',data:table.data.slice(),frameSize:table.fs,frames:table.fc});
+    $('audiostat').textContent='Audio on · '+audioMode+' · '+ctx.sampleRate+' Hz';$('audiostat').className='hint ok';
+  })().catch(err=>{$('audiostat').textContent='Audio failed: '+err.message;$('audiostat').className='hint warn';starting=null;throw err;});
+  return starting;
+}
+/* ---------- State ---------- */
+const $=id=>document.getElementById(id);
+let files=[],shown=[],cur=-1,table=null,livePos=0,droneOn=false,starOnly=false;
+const CKEY='tlbx-wtb-curation-v1';
+let cur8=(()=>{try{return JSON.parse(localStorage.getItem(CKEY)||'{}')}catch{return{}}})();
+function saveCur(){try{localStorage.setItem(CKEY,JSON.stringify(cur8))}catch{}}
+const rec=p=>cur8[p]||(cur8[p]={});
+/* ---------- Folder loading ---------- */
+$('pick').onclick=()=>{audio().catch(()=>{});$('dir').click();};
+$('audiobtn').onclick=()=>audio().catch(()=>{});
+$('dir').onchange=async e=>{
+  files=[...e.target.files].filter(f=>/\.wav$/i.test(f.name)).map(f=>{const path=f.webkitRelativePath||f.name;const parts=path.split('/');return{file:f,path,folder:parts.length>2?parts.slice(1,-1).join('/'):parts.length>1?parts[0]:'',name:f.name.replace(/\.wav$/i,''),h:null,err:null}});
+  files.sort((a,b)=>a.path.localeCompare(b.path,undefined,{numeric:true}));
+  const folders=[...new Set(files.map(f=>f.folder.split('/')[0]))];
+  $('folder').innerHTML='<option value="">All folders</option>'+folders.map(f=>`<option>${esc(f)}</option>`).join('');
+  $('empty').hidden=true;$('view').hidden=false;render();
+  for(let i=0;i<files.length;i++){const f=files[i];try{f.h=parseChunks(await f.file.slice(0,262144).arrayBuffer());f.h.auto=autoFrame(f.h);}catch(err){f.err=err.message}
+    if(i%40===0||i===files.length-1){render();}}
+  if(cur<0&&shown.length)select(shown[0]);updateBudget();
+};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function kindOf(f){if(!f.h)return'';return f.h.auto.size>=f.h.frames?'single':'multi'}
+function render(){
+  const q=$('q').value.trim().toLowerCase(),fo=$('folder').value,ki=$('kind').value;
+  shown=[];let html='',grp=null;
+  files.forEach((f,i)=>{if(fo&&f.folder.split('/')[0]!==fo)return;if(q&&!f.path.toLowerCase().includes(q))return;if(starOnly&&!(cur8[f.path]||{}).star)return;if(ki&&kindOf(f)!==ki)return;
+    shown.push(i);if(f.folder!==grp){grp=f.folder;html+=`<div class="grp">${esc(grp||'(root)')}</div>`;}
+    const r=cur8[f.path]||{};const m=f.err?'<span class="warn">error</span>':f.h?(kindOf(f)==='single'?f.h.frames+' smp':(Math.floor(f.h.frames/f.h.auto.size))+'×'+f.h.auto.size):'…';
+    html+=`<div class="item${i===cur?' sel':''}${r.star?' starred':''}" data-i="${i}"><span class="star" data-s="${i}">★</span><span class="nm" title="${esc(f.path)}">${esc(f.name)}</span><span class="meta">${m}</span></div>`;});
+  $('list').innerHTML=html;$('count').textContent=`${shown.length} of ${files.length} tables · ${Object.values(cur8).filter(r=>r.star).length} starred`;
+}
+['q','folder','kind'].forEach(id=>$(id).addEventListener('input',render));
+$('staronly').onclick=()=>{starOnly=!starOnly;$('staronly').classList.toggle('on',starOnly);render();};
+$('list').onclick=e=>{const s=e.target.closest('[data-s]');if(s){toggleStar(+s.dataset.s);return;}const it=e.target.closest('[data-i]');if(it)select(+it.dataset.i);};
+/* ---------- Selecting and building a table ---------- */
+let raw=null;
+async function select(i){
+  cur=i;const f=files[i];render();
+  const el=$('list').querySelector('.sel');if(el)el.scrollIntoView({block:'nearest'});
+  $('title').textContent=f.name;$('path').textContent=f.path;$('note').value=(cur8[f.path]||{}).note||'';syncStar();
+  try{const buf=await f.file.arrayBuffer();f.h=f.h||parseChunks(buf);if(!f.h.auto)f.h.auto=autoFrame(f.h);
+    raw={h:f.h,s:decodeSamples(buf,f.h)};
+    const saved=(cur8[f.path]||{}).fs;$('fs').value=saved?String(saved):'auto';build();}
+  catch(err){f.err=err.message;$('chips').innerHTML=`<span class="chip warn">${esc(err.message)}</span>`;table=null;}
+}
+function frameSize(){const v=$('fs').value,h=raw.h;if(v==='auto')return h.auto.size;if(v==='whole')return raw.s.length;return Math.min(+v,raw.s.length)}
+function build(){
+  if(!raw)return;const h=raw.h,fsz=frameSize(),fc=Math.max(1,Math.floor(raw.s.length/fsz));let res=+$('res').value;
+  const outFs=res>0?res:fsz;const data=new Float32Array(outFs*fc);
+  for(let k=0;k<fc;k++){const base=k*fsz;
+    if(res>0){for(let j=0;j<outFs;j++){const x=j*fsz/outFs,i0=Math.floor(x),q=x-i0,a=raw.s[base+i0],b=raw.s[base+((i0+1)%fsz)];data[k*outFs+j]=a+(b-a)*q;}}
+    else data.set(raw.s.subarray(base,base+fsz),k*outFs);}
+  if($('norm').value==='1'){let pk=0;for(const v of data)pk=Math.max(pk,Math.abs(v));if(pk>1e-6)for(let i=0;i<data.length;i++)data[i]/=pk;}
+  if(res!==0)for(let i=0;i<data.length;i++)data[i]=Math.round(Math.max(-1,Math.min(1,data[i]))*32767)/32767;
+  table={data,fs:outFs,fc,srcFs:fsz};
+  send({type:'table',data:data.slice(),frameSize:outFs,frames:fc});
+  const lost=raw.s.length-fc*fsz;
+  $('chips').innerHTML=[`<b>${fc}</b> frame${fc>1?'s':''}`,`<b>${fsz}</b> samples / frame`,`${h.frames} samples total`,`${h.channels} ch · ${h.bits}-bit ${h.format===3?'float':'PCM'}`,`${h.rate} Hz file rate`,
+    `auto: ${h.auto.size} (${h.auto.why})`,lost?`<span class="warn">${lost} trailing samples ignored</span>`:'',
+    res>0?`bank cost ≈ <b>${fmtKB(fc*res*2)}</b>`:res<0?`bank cost ≈ <b>${fmtKB(fc*fsz*2)}</b>`:''].filter(Boolean).map(c=>`<span class="chip">${c}</span>`).join('');
+  $('fsv').textContent=fsz;$('resv').textContent=res>0?res:res<0?'native':'off';
+  $('pos').disabled=fc<2;$('lr').disabled=fc<2;$('ld').disabled=fc<2;drawOver();
+}
+const fmtKB=b=>(b/1024).toFixed(b<10240?1:0)+' KB';
+$('fs').onchange=()=>{if(cur>=0){const f=files[cur];const v=$('fs').value;if(v==='auto')delete rec(f.path).fs;else rec(f.path).fs=v;saveCur();}build();updateBudget();render();};
+['res','norm'].forEach(id=>$(id).onchange=()=>{build();updateBudget();});
+/* ---------- Drawing ---------- */
+function drawOver(){const c=$('over'),g=c.getContext('2d');const W=c.width=c.clientWidth*devicePixelRatio,H=c.height=120*devicePixelRatio;g.clearRect(0,0,W,H);if(!table)return;
+  const {data,fs,fc}=table,rows=Math.min(fc,48),step=fc/rows;g.lineWidth=devicePixelRatio;
+  for(let r=0;r<rows;r++){const k=Math.min(fc-1,Math.floor(r*step)),y0=H*0.12+(H*0.76)*(fc>1?r/(rows-1||1):0.5),ox=(W*0.12)*(r/(rows||1));
+    g.strokeStyle=`hsla(${30+r/rows*230},85%,62%,${fc>1?0.55:0.9})`;g.beginPath();
+    for(let x=0;x<W*0.86;x+=2){const j=Math.floor(x/(W*0.86)*fs),v=data[k*fs+j];const yy=y0-v*(fc>1?H*0.09:H*0.38);x===0?g.moveTo(ox+x,yy):g.lineTo(ox+x,yy);}g.stroke();}
+}
+function drawWave(){try{drawWave1();}catch(e){console.error(e);}requestAnimationFrame(drawWave);}
+function drawWave1(){const c=$('wave'),g=c.getContext('2d');const W=c.width=c.clientWidth*devicePixelRatio,H=c.height=180*devicePixelRatio;g.clearRect(0,0,W,H);
+  g.strokeStyle='#262b36';g.beginPath();g.moveTo(0,H/2);g.lineTo(W,H/2);g.stroke();if(!table)return;
+  const {data,fs,fc}=table,p=(droneOn||held.size||midiHeld.size)?livePos:+$('pos').value,pos=p*(fc-1);let f0=Math.floor(pos),fr=pos-f0;if(f0>=fc-1){f0=fc-1;fr=0}if($('morph').value==='0'){f0=Math.round(pos);fr=0}const f1=Math.min(fc-1,f0+1);
+  g.strokeStyle='#ff9f3a';g.lineWidth=2*devicePixelRatio;g.beginPath();
+  for(let x=0;x<W;x++){const j=Math.floor(x/W*fs);let v=data[f0*fs+j];if(fr>0)v+=(data[f1*fs+j]-v)*fr;const y=H/2-v*H*0.42;x?g.lineTo(x,y):g.moveTo(x,y);}g.stroke();
+  if(fs<=256){g.fillStyle='#a78bfa';for(let j=0;j<fs;j++){let v=data[f0*fs+j];if(fr>0)v+=(data[f1*fs+j]-v)*fr;g.fillRect(j/fs*W-1,H/2-v*H*0.42-1,3,3);}}
+  g.fillStyle='#8a92a6';g.font=`${11*devicePixelRatio}px system-ui`;g.fillText(fc>1?`frame ${(pos+1).toFixed(2)} / ${fc}`:'single cycle',8*devicePixelRatio,16*devicePixelRatio);
+  $('posv').textContent=p.toFixed(3);}
+requestAnimationFrame(drawWave);addEventListener('resize',drawOver);
+/* ---------- Parameters ---------- */
+function sendParams(){const at=+$('at').value,rl=+$('rl').value,lp=+$('lp').value,vl=+$('vl').value;
+  $('atv').textContent=at.toFixed(3)+' s';$('rlv').textContent=rl.toFixed(2)+' s';$('vlv').textContent=Math.round(vl*100)+'%';$('lrv').textContent=(+$('lr').value).toFixed(2);$('ldv').textContent=(+$('ld').value).toFixed(2);$('ocv').textContent=(+$('oc').value>0?'+':'')+$('oc').value;
+  const hz=40*Math.pow(18000/40,lp);$('lpv').textContent=lp>=1?'open':Math.round(hz)+' Hz';
+  if(lpf)lpf.frequency.setTargetAtTime(lp>=1?20000:hz,ctx.currentTime,0.01);
+  send({type:'params',p:{pos:+$('pos').value,lfoRate:+$('lr').value,lfoDepth:+$('ld').value,att:at,rel:rl,gain:vl*0.5,morph:+$('morph').value}});}
+['pos','lr','ld','at','rl','lp','vl','oc','morph'].forEach(id=>$(id).addEventListener('input',sendParams));sendParams();
+/* ---------- Notes ---------- */
+const mtof=n=>440*Math.pow(2,(n-69)/12);
+async function noteOn(id,n,vel=0.8){kbShow(n,true);try{await audio();}catch{return;}send({type:'on',id,freq:mtof(n+12*+$('oc').value),vel});}
+function noteOff(id,n){send({type:'off',id});kbShow(n,false);}
+$('drone').onclick=async()=>{droneOn=!droneOn;$('drone').classList.toggle('on',droneOn);if(droneOn)await noteOn('drone',48);else noteOff('drone',48);};
+$('panic').onclick=()=>{droneOn=false;$('drone').classList.remove('on');held.clear();midiHeld.clear();send({type:'panic'});document.querySelectorAll('.k.down').forEach(k=>k.classList.remove('down'));};
+const KEYMAP={z:48,s:49,x:50,d:51,c:52,v:53,g:54,b:55,h:56,n:57,j:58,m:59,',':60,q:60,2:61,w:62,3:63,e:64,r:65,5:66,t:67,6:68,y:69,7:70,u:71,i:72};
+const held=new Map();
+addEventListener('keydown',e=>{if(e.target.matches('input:not([type=range]),textarea,select')||e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key.toLowerCase();
+  if(k==='arrowdown'||k==='arrowup'){e.preventDefault();step(k==='arrowdown'?1:-1);return;}
+  if(k==='arrowleft'||k==='arrowright'){e.preventDefault();const p=$('pos');p.value=Math.max(0,Math.min(1,+p.value+(k==='arrowright'?0.02:-0.02)));sendParams();return;}
+  if(k===' '){e.preventDefault();$('drone').click();return;}
+  if(e.key==='S'){if(cur>=0&&!e.repeat)toggleStar(cur);return;} /* plain 's' is a note key */
+  if(k in KEYMAP&&!e.repeat){held.set(k,KEYMAP[k]);noteOn('k'+k,KEYMAP[k]);}});
+addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(held.has(k)){noteOff('k'+k,held.get(k));held.delete(k);}});
+function step(d){if(!shown.length)return;let at=shown.indexOf(cur);at=at<0?0:Math.max(0,Math.min(shown.length-1,at+d));select(shown[at]);}
+$('next').onclick=()=>step(1);$('prev').onclick=()=>step(-1);
+/* ---------- On-screen keyboard (C2–C5) ---------- */
+(function(){const kb=$('kb');const lo=36,hi=72;const whites=[];for(let n=lo;n<=hi;n++)if(![1,3,6,8,10].includes(n%12))whites.push(n);const w=100/whites.length;let html='';
+  whites.forEach((n,i)=>html+=`<div class="k w" data-n="${n}" style="left:${i*w}%;width:${w}%">${n%12===0?`<span>C${n/12-1}</span>`:''}</div>`);
+  for(let n=lo;n<=hi;n++)if([1,3,6,8,10].includes(n%12)){const i=whites.indexOf(n-1);html+=`<div class="k b" data-n="${n}" style="left:${(i+1)*w-w*0.3}%;width:${w*0.6}%"></div>`;}
+  kb.innerHTML=html;let down=null;
+  kb.addEventListener('pointerdown',e=>{const k=e.target.closest('.k');if(!k)return;down=+k.dataset.n;kb.setPointerCapture(e.pointerId);noteOn('mouse',down);});
+  const up=()=>{if(down!==null){noteOff('mouse',down);down=null;}};kb.addEventListener('pointerup',up);kb.addEventListener('pointercancel',up);})();
+function kbShow(n,on){const k=document.querySelector(`.k[data-n="${n}"]`);if(k)k.classList.toggle('down',on);}
+/* ---------- MIDI ---------- */
+const midiHeld=new Map();
+$('midi').onclick=async()=>{if(!navigator.requestMIDIAccess){alertMsg('Web MIDI is not available in this browser (use Chrome or Edge).');return;}
+  try{const acc=await navigator.requestMIDIAccess();const hook=()=>{for(const inp of acc.inputs.values())inp.onmidimessage=onMidi;};hook();acc.onstatechange=hook;
+    $('midi').classList.add('on');audio().catch(()=>{});{const names=[...acc.inputs.values()].map(i=>i.name).join(', ');$('midi').textContent=names?'MIDI · '+names:'MIDI (no inputs)';}await audio();}
+  catch(err){alertMsg('MIDI access was refused: '+err.message);}};
+function onMidi(e){const[s,a,b]=e.data,t=s&0xf0;
+  if(t===0x90&&b>0){midiHeld.set(a,1);noteOn('m'+a,a-12*+$('oc').value,b/127);}
+  else if(t===0x80||(t===0x90&&b===0)){midiHeld.delete(a);noteOff('m'+a,a-12*+$('oc').value);}
+  else if(t===0xb0&&a===1){$('pos').value=b/127;sendParams();}}
+function alertMsg(m){$('chips').insertAdjacentHTML('afterbegin',`<span class="chip warn">${esc(m)}</span>`);}
+/* ---------- Curation ---------- */
+function toggleStar(i){const f=files[i];const r=rec(f.path);r.star=!r.star;if(!r.star&&!r.note&&!r.fs)delete cur8[f.path];saveCur();render();syncStar();updateBudget();}
+function syncStar(){const on=cur>=0&&(cur8[files[cur].path]||{}).star;$('star').textContent=on?'★ Starred':'☆ Star';$('star').classList.toggle('on',!!on);}
+$('star').onclick=()=>{if(cur>=0)toggleStar(cur);};
+$('note').addEventListener('input',()=>{if(cur<0)return;const r=rec(files[cur].path);r.note=$('note').value;saveCur();});
+const BANK=400*1024;
+function frameInfo(f){if(!f.h)return null;const r=cur8[f.path]||{};const v=r.fs;const fsz=v==='whole'?f.h.frames:v?Math.min(+v,f.h.frames):f.h.auto.size;return{fsz,fc:Math.max(1,Math.floor(f.h.frames/fsz))};}
+function updateBudget(){const res=+$('res').value;const st=files.filter(f=>(cur8[f.path]||{}).star);let bytes=0,frames=0,unknown=0;
+  for(const f of st){const fi=frameInfo(f);if(!fi){unknown++;continue;}frames+=fi.fc;bytes+=fi.fc*(res>0?res:fi.fsz)*2;}
+  const extra=Object.keys(cur8).filter(p=>cur8[p].star&&!files.some(f=>f.path===p)).length;
+  $('bud').innerHTML=`${st.length+extra} starred · ${frames} frames · <b>${fmtKB(bytes)}</b> uncompressed at ${res>0?res+' samples/frame':'native length'} (16-bit) of ~${fmtKB(BANK)} flash available`+(bytes>BANK?' <span class="warn">— over budget before compression</span>':'')+(extra?` · ${extra} starred file(s) not in the open folder`:'')+(unknown?` · ${unknown} still scanning`:'');
+  $('budfill').style.width=Math.min(100,bytes/BANK*100)+'%';$('budfill').style.background=bytes>BANK?'var(--bad)':'var(--good)';}
+$('export').onclick=()=>{const res=+$('res').value;const items=Object.entries(cur8).filter(([,r])=>r.star).map(([path,r])=>{const f=files.find(x=>x.path===path);const fi=f&&frameInfo(f);
+    return{path,name:f?f.name:path.split('/').pop().replace(/\.wav$/i,''),folder:f?f.folder:'',sampleFrames:f&&f.h?f.h.frames:null,channels:f&&f.h?f.h.channels:null,bits:f&&f.h?f.h.bits:null,frameSize:fi?fi.fsz:null,frameCount:fi?fi.fc:null,note:r.note||''}});
+  const out={format:'tlbx1-wavetable-curation',version:1,created:new Date().toISOString(),previewResolution:res>0?res:null,items};
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));a.download='wavetable-curation.json';a.click();};
+$('impbtn').onclick=()=>$('imp').click();
+$('imp').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());for(const it of j.items||[]){const r=rec(it.path);r.star=true;if(it.note)r.note=it.note;if(it.frameSize)r.fs=String(it.frameSize);}saveCur();render();updateBudget();syncStar();}catch(err){alertMsg('Import failed: '+err.message);}e.target.value='';};
+</script>
+</body>
+</html>

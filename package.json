@@ -1,0 +1,6 @@
+{
+  "name": "tlbx-animate-firmware",
+  "private": true,
+  "type": "module",
+  "description": "Animate vector synthesizer firmware for the SMK-37"
+}

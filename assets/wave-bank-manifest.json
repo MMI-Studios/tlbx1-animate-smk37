@@ -1,0 +1,2012 @@
+{
+  "format": "tlbx1-wave-bank",
+  "frame": 256,
+  "peak": 18700,
+  "curation_sha256": "3300f5518be33349e33d4975dee6b17564a298d938dde58d52601c3c293ba7c6",
+  "originals": [
+    "SINE C3",
+    "SAW C3",
+    "BELL2 C3",
+    "VOICE2 C3"
+  ],
+  "entries": [
+    {
+      "name": "SYNSINE1",
+      "path": "wavetables/ms2000/DWGS/01 SynSine1-C5.wav",
+      "frameSize": 148,
+      "frames": 1,
+      "sha256": "149ecd9f797f7d5a8cac034e11204c249e577510acae71d40b466b874b2fc2dc"
+    },
+    {
+      "name": "SYNSINE2",
+      "path": "wavetables/ms2000/DWGS/02 SynSine2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "06631de513196bcd3d890178832b4138688ecbff09eb313ef5369ee14b2fda79"
+    },
+    {
+      "name": "SYNSINE3",
+      "path": "wavetables/ms2000/DWGS/03 SynSine3-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "27a815f802e466bacb7f4df2c397ef46a1651a0f631d8964a854ef359c47a895"
+    },
+    {
+      "name": "SYNSINE4",
+      "path": "wavetables/ms2000/DWGS/04 SynSine4-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "0075c42a57de5877310d603b68c51cead334a1d764785b4ab715c0472b6fae55"
+    },
+    {
+      "name": "SYNSINE5",
+      "path": "wavetables/ms2000/DWGS/05 SynSine5-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "4fc2786eb453e235bea1c0990270f0c4414b75191dbe208426b1663137a3adae"
+    },
+    {
+      "name": "SYNSINE6",
+      "path": "wavetables/ms2000/DWGS/06 SynSine6-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "a6959bed82bc6d0575018e93cbc5be927a7518637b06a5fd9ddc50f9aa525819"
+    },
+    {
+      "name": "SYNSINE7",
+      "path": "wavetables/ms2000/DWGS/07 SynSine7-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "3968a776ac3919c4f943c8f4b3e40235f44b934cff9bb519c2ff839aa2d25411"
+    },
+    {
+      "name": "SYNBASS1",
+      "path": "wavetables/ms2000/DWGS/08 SynBass1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "0b6742a39e80e7eda8cba241b9d48b874559956df0d53892552cf38ad4d84cfe"
+    },
+    {
+      "name": "SYNBASS2",
+      "path": "wavetables/ms2000/DWGS/09 SynBass2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "6ff90273cdb6de0425c94156b3e3be3d61f028d3dfcad9e56f2c043525c88d20"
+    },
+    {
+      "name": "SYNBASS3",
+      "path": "wavetables/ms2000/DWGS/10 SynBass3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "d3c0721f412548a55c7f9d321954c300dea813d3052b0421a1f3a608d88330da"
+    },
+    {
+      "name": "SYNBASS4",
+      "path": "wavetables/ms2000/DWGS/11 SynBass4-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "b7ec7866a73c743f77d8530847a8ca864a98da5a52c0c86800e5272a7b0fa2a1"
+    },
+    {
+      "name": "SYNBASS5",
+      "path": "wavetables/ms2000/DWGS/12 SynBass5-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "5a76957d98f8e388cb6eca2a4121f6a7cc602f7c4e6ccd900ead3d06c2d41f46"
+    },
+    {
+      "name": "SYNBASS6",
+      "path": "wavetables/ms2000/DWGS/13 SynBass6-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "74402a31dde6fe2e494075f3fdb80318c854949dc19df8d3470f622793288692"
+    },
+    {
+      "name": "SYNBASS7",
+      "path": "wavetables/ms2000/DWGS/14 SynBass7-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "abcad461d3519ae9714e128b0ee9bc6ab3f2ea1df817e1d4e19d54fd66bd6fc5"
+    },
+    {
+      "name": "SYNWAVE1",
+      "path": "wavetables/ms2000/DWGS/15 SynWave1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "c807f4d8ad462bc8ccad590a16e5eafd8327734917ba25a02836642fa2f6a8ae"
+    },
+    {
+      "name": "SYNWAVE2",
+      "path": "wavetables/ms2000/DWGS/16 SynWave2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "7e4859640a7509f2fd02f1ac61269768952803bb10e1d41edf063b083dca0dbd"
+    },
+    {
+      "name": "SYNWAVE3",
+      "path": "wavetables/ms2000/DWGS/17 SynWave3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "2426c26bff45451d92981c9d934e8756c9869706b660c605bb70fcdba7bc9102"
+    },
+    {
+      "name": "SYNWAVE4",
+      "path": "wavetables/ms2000/DWGS/18 SynWave4-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "7f019807fcf31d079abfcd2bf8d7231bd9c8cfd0c55438d8ae54e7e120bfb8fc"
+    },
+    {
+      "name": "SYNWAVE5",
+      "path": "wavetables/ms2000/DWGS/19 SynWave5-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "c982211ddce5660319426a9032043561e16a73abe0c8d5d059bae96446fd8c48"
+    },
+    {
+      "name": "SYNWAVE6",
+      "path": "wavetables/ms2000/DWGS/20 SynWave6-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "612e9c9c32bb5b7af9ab1ae1f7030b24beffbcce7a12766ada1961fbba4e7485"
+    },
+    {
+      "name": "SYNWAVE7",
+      "path": "wavetables/ms2000/DWGS/21 SynWave7-C5.wav",
+      "frameSize": 126,
+      "frames": 1,
+      "sha256": "75cdf1cb6f6231db8464a7a3c410d46aa66d5b5f070209e91451245ac2cf9044"
+    },
+    {
+      "name": "SYNWAVE8",
+      "path": "wavetables/ms2000/DWGS/22 SynWave8-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "caeb4d47d76345bb57dabe687a7f26c1a701554dcc66d59e67f8bbb9f87535aa"
+    },
+    {
+      "name": "SYNWAVE9",
+      "path": "wavetables/ms2000/DWGS/23 SynWave9-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "def3110535de99fe8c6c68589bbb494079036c9d8d22c41c6bfa2a8991c62358"
+    },
+    {
+      "name": "5THWAVE1",
+      "path": "wavetables/ms2000/DWGS/24 5thWave1-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "f854c3d3d22735d2f4ab03751b95f5b178f3c5cfa9b2ad85689853713e9d8079"
+    },
+    {
+      "name": "5THWAVE2",
+      "path": "wavetables/ms2000/DWGS/25 5thWave2-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "314addbdbb64a63987005c6fa989d27fa062b88680c71a5df0c305fcdfc01df7"
+    },
+    {
+      "name": "5THWAVE3",
+      "path": "wavetables/ms2000/DWGS/26 5thWave3-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "7196521633b75002cb3ed154510fac770657d603e75105429890b9e182c378b0"
+    },
+    {
+      "name": "DIGI1",
+      "path": "wavetables/ms2000/DWGS/27 Digi1-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "c3a722f2c41ddf792e2accb4f84a77c715de7616c77f2cd4fa6e6da64c5ae282"
+    },
+    {
+      "name": "DIGI2",
+      "path": "wavetables/ms2000/DWGS/28 Digi2-C5.wav",
+      "frameSize": 253,
+      "frames": 1,
+      "sha256": "e4d2ec51c3a84e89497e15620d25852c34355e948afa582ab8fc2826ae9c476d"
+    },
+    {
+      "name": "DIGI3",
+      "path": "wavetables/ms2000/DWGS/29 Digi3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "8f40da7178b5c2276457976d9e5d5e9064e6cdc3fab03cca00a3b3d0fc78408d"
+    },
+    {
+      "name": "DIGI4",
+      "path": "wavetables/ms2000/DWGS/30 Digi4-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "12faebbe21bbd7386b931024292ce8049a8289203378c944a9735944ab9b0e73"
+    },
+    {
+      "name": "DIGI5",
+      "path": "wavetables/ms2000/DWGS/31 Digi5-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "cf2c782e22a3a152fa5b12f2e748948adb2891e357b17da689fa84983e4da1f1"
+    },
+    {
+      "name": "DIGI6",
+      "path": "wavetables/ms2000/DWGS/32 Digi6-C5.wav",
+      "frameSize": 253,
+      "frames": 1,
+      "sha256": "9ef1f287a1875fe2052ec830589047c3e91418a0915a521f3ef3fbe3b3bdcc92"
+    },
+    {
+      "name": "DIGI7",
+      "path": "wavetables/ms2000/DWGS/33 Digi7-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "9a662c6be9d8d55e83c5991949702ab1851837ab3737870d835d2fc08b0480ed"
+    },
+    {
+      "name": "DIGI8",
+      "path": "wavetables/ms2000/DWGS/34 Digi8-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "007fab8494505ca47c24b205cf9ec86c3433145da7db58905af44c34131a3aa8"
+    },
+    {
+      "name": "ENDLESS",
+      "path": "wavetables/ms2000/DWGS/35 Endless.wav",
+      "frameSize": 674,
+      "frames": 1,
+      "sha256": "126e482618e2df47ca3fb88b44969e715c0c7f586f8ea6ba6c7456f01dbb562e"
+    },
+    {
+      "name": "E.PIANO1",
+      "path": "wavetables/ms2000/DWGS/36 E.Piano1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "9cd3e70b7dcb12fa90960c3458ed05782f42dc5e660e07a0d17dccfcc6c00de0"
+    },
+    {
+      "name": "E.PIANO2",
+      "path": "wavetables/ms2000/DWGS/37 E.Piano2-C5.wav",
+      "frameSize": 547,
+      "frames": 1,
+      "sha256": "b1d0e319d547de56679de89e58a4da1da39149edbb2aa8fe77dfe75a6dac8748"
+    },
+    {
+      "name": "E.PIANO3",
+      "path": "wavetables/ms2000/DWGS/38 E.Piano3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "d218efe7a95b8556713ac74c703f2ae46969a92b51446c55be616cd54a518123"
+    },
+    {
+      "name": "E.PIANO4",
+      "path": "wavetables/ms2000/DWGS/39 E.Piano4-C5.wav",
+      "frameSize": 84,
+      "frames": 1,
+      "sha256": "5b778983d641a4057cc78d4897444c6341ff81ed4361a0f4ff4fd91de0376d83"
+    },
+    {
+      "name": "ORGAN1",
+      "path": "wavetables/ms2000/DWGS/40 Organ1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "e8ed706c0b7d951495125970ce20050cf47c61eac030a565e7095537a7f82dac"
+    },
+    {
+      "name": "ORGAN2",
+      "path": "wavetables/ms2000/DWGS/41 Organ2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "877beb87c422e9a30b0bfd23e33059561a7703a7c908732f0214eeadbc8da673"
+    },
+    {
+      "name": "ORGAN3",
+      "path": "wavetables/ms2000/DWGS/42 Organ3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "dd1c3535e21e00d4d4ab460f6a9b73e0eb81a8dad64a50d4237679f0af316d51"
+    },
+    {
+      "name": "ORGAN4",
+      "path": "wavetables/ms2000/DWGS/43 Organ4-C5.wav",
+      "frameSize": 253,
+      "frames": 1,
+      "sha256": "41a0bc5a95fdd63c9899c1fd5e82f11fd8d09125587c5a3ab050792a8a60fe7d"
+    },
+    {
+      "name": "ORGAN5",
+      "path": "wavetables/ms2000/DWGS/44 Organ5-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "714fab4a17ee269f6e43a0b074a48bc4e48024755f270be77eeb20b9ef98aab9"
+    },
+    {
+      "name": "ORGAN6",
+      "path": "wavetables/ms2000/DWGS/45 Organ6-C5.wav",
+      "frameSize": 169,
+      "frames": 1,
+      "sha256": "27b384a19e681f9940e57d93c0d7f8b7cbf4abd321e0fbcdcfe9fb7432890c1b"
+    },
+    {
+      "name": "ORGAN7",
+      "path": "wavetables/ms2000/DWGS/46 Organ7-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "f00855d96ec369257ebbb6d9310884a112929e027c941980ac49a0933cb99383"
+    },
+    {
+      "name": "CLAV1",
+      "path": "wavetables/ms2000/DWGS/47 Clav1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "1fc02a2d5f487ea17244dfc4b29f58619086ea151c9b365353301456ba6067cb"
+    },
+    {
+      "name": "CLAV2",
+      "path": "wavetables/ms2000/DWGS/48 Clav2-C5.wav",
+      "frameSize": 211,
+      "frames": 1,
+      "sha256": "742f65887866394fc987e8374f389475b47826f47bf295e67d79f53f21f4527f"
+    },
+    {
+      "name": "GUITAR1",
+      "path": "wavetables/ms2000/DWGS/49 Guitar1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "830a2bced9aff8dc7bb4450558d910c3b316a8ebf4bef7843f70c1e7b0b9439e"
+    },
+    {
+      "name": "GUITAR2",
+      "path": "wavetables/ms2000/DWGS/50 Guitar2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "c15acdb24ab6f8ddc03d6e502ccba6e91c84bc95bfd5996f4059eed29f50fe63"
+    },
+    {
+      "name": "GUITAR3",
+      "path": "wavetables/ms2000/DWGS/51 Guitar3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "f04836c30e105b57532d83489acbe32c62d2664e04997cc70edd1b1f55c315a4"
+    },
+    {
+      "name": "BASS1",
+      "path": "wavetables/ms2000/DWGS/52 Bass1-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "7f0eca4c000ba5872a33c42d3d9c02bbe420fc4d2b05b65af05834be73c78905"
+    },
+    {
+      "name": "BASS2",
+      "path": "wavetables/ms2000/DWGS/53 Bass2-C5.wav",
+      "frameSize": 169,
+      "frames": 1,
+      "sha256": "9d3ed652d95a60db10dfc934fefce589ed0aac577243f8e237ddb17673851c86"
+    },
+    {
+      "name": "BASS3",
+      "path": "wavetables/ms2000/DWGS/54 Bass3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "b038274c5debe1fe5eadccb9f8255bc7082e2684368b93aa6dcc9960fc0f3681"
+    },
+    {
+      "name": "BASS4",
+      "path": "wavetables/ms2000/DWGS/55 Bass4-C5.wav",
+      "frameSize": 168,
+      "frames": 1,
+      "sha256": "de9a21361515932b4daace8b33dc96e2a8e608fa4f6251b119d65cc22b569e6c"
+    },
+    {
+      "name": "BASS5",
+      "path": "wavetables/ms2000/DWGS/56 Bass5-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "66bedb122ca88ab9229d9fd464bafe35269083c3c087149a3646425a4d946ac8"
+    },
+    {
+      "name": "BELL1",
+      "path": "wavetables/ms2000/DWGS/57 Bell1-C5.wav",
+      "frameSize": 253,
+      "frames": 1,
+      "sha256": "288d9b4e6b8b7d955a75372cff9731b18b1168393c7045e00208fdba0670bba7"
+    },
+    {
+      "name": "BELL2",
+      "path": "wavetables/ms2000/DWGS/58 Bell2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "cca810783b047f6a6c7bbe31091b71b2fe4751d2ebda92f1b3722fe0eb689aab"
+    },
+    {
+      "name": "BELL3",
+      "path": "wavetables/ms2000/DWGS/59 Bell3-C5.wav",
+      "frameSize": 379,
+      "frames": 1,
+      "sha256": "011ebd7fcb5b59ef71a561ddf69636d0f3571e4245973380f31fdd407fc27459"
+    },
+    {
+      "name": "BELL4",
+      "path": "wavetables/ms2000/DWGS/60 Bell4-C5.wav",
+      "frameSize": 672,
+      "frames": 1,
+      "sha256": "e9a3b0c80e68e7296cde7e342f97b1d915b7a18751cbc926e653d69c9b322b97"
+    },
+    {
+      "name": "VOICE1",
+      "path": "wavetables/ms2000/DWGS/61 Voice1-C5.wav",
+      "frameSize": 126,
+      "frames": 1,
+      "sha256": "dbe54d8f93e9a0db990dfa385170d913c3fa808ac8e2f7611b28efa120636671"
+    },
+    {
+      "name": "VOICE2",
+      "path": "wavetables/ms2000/DWGS/62 Voice2-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "09dcf483b5b7a998bb4fde5032b3a6be728934be4aa01ebffe320997453d323f"
+    },
+    {
+      "name": "VOICE3",
+      "path": "wavetables/ms2000/DWGS/63 Voice3-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "41956851ae537cee1415c877b4481ca0349d401629a97c65d05476d8004cc48c"
+    },
+    {
+      "name": "VOICE4",
+      "path": "wavetables/ms2000/DWGS/64 Voice4-C5.wav",
+      "frameSize": 295,
+      "frames": 1,
+      "sha256": "10beed14edbe36cb2df597cd5dcd7b53cebaa568bfd82b720e90711cd83a9c4c"
+    },
+    {
+      "name": "NOISE",
+      "path": "wavetables/ms2000/NOISE.wav",
+      "frameSize": 55160,
+      "frames": 1,
+      "sha256": "7fb3ce13c2080a4e3026bb406fb696d38a3799effabd66a49fb3c6ad2acd10b7"
+    },
+    {
+      "name": "SAW C5",
+      "path": "wavetables/ms2000/SAW-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "d39b8e6eb4d4881c4c794749a8d5c8ef1a79d3b8508db4d651941d9ee3eba8bd"
+    },
+    {
+      "name": "SINE C5",
+      "path": "wavetables/ms2000/SINE-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "e042db8f50f732dce0797db59ff2270f68dfa22b0cffb0e9573a28c1251ae0bd"
+    },
+    {
+      "name": "SQUARE C5",
+      "path": "wavetables/ms2000/SQUARE-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "87315a7afe1203e180b00e7f4d694f42e94e5af762329706d99974ec362cf134"
+    },
+    {
+      "name": "TRIANGLE C5",
+      "path": "wavetables/ms2000/TRIANGLE-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "48b756dbd2d7dee935bcfee6f0160cd067a0023c7aca42b48a2a1274a4fe9488"
+    },
+    {
+      "name": "VOX C5",
+      "path": "wavetables/ms2000/VOX-C5.wav",
+      "frameSize": 42,
+      "frames": 1,
+      "sha256": "7964204c9aea32cfcd574539418f9e9d1c18cb5c19db912a319cc5bdbf735d00"
+    },
+    {
+      "name": "VIRUS 001",
+      "path": "wavetables/virus/Virus_WT_001.wav",
+      "frameSize": 6968,
+      "frames": 1,
+      "sha256": "5339e9a518467c92af4e1099f81d4f32795455250858beb8a2e538a116ab1080"
+    },
+    {
+      "name": "VIRUS 002",
+      "path": "wavetables/virus/Virus_WT_002.wav",
+      "frameSize": 4542,
+      "frames": 1,
+      "sha256": "e2b9da6df8a2cd26f5d36f0b5aa09967b3b6ef1e123d9318d305f80ce4f778f6"
+    },
+    {
+      "name": "VIRUS 003",
+      "path": "wavetables/virus/Virus_WT_003.wav",
+      "frameSize": 256,
+      "frames": 19,
+      "sha256": "2b3eadd9d05be2e7e597bd217ada2f2a6fc36cb36e2a3da113fa6484d303329b"
+    },
+    {
+      "name": "VIRUS 004",
+      "path": "wavetables/virus/Virus_WT_004.wav",
+      "frameSize": 7700,
+      "frames": 1,
+      "sha256": "8d7cd387688b88e73fecc432256e9609e9454878e74ceaa5bcabec99f7c2f899"
+    },
+    {
+      "name": "VIRUS 005",
+      "path": "wavetables/virus/Virus_WT_005.wav",
+      "frameSize": 4718,
+      "frames": 1,
+      "sha256": "67226c680c628bd6a73367311e8171874beab3beebc2ed955e46f093de515df0"
+    },
+    {
+      "name": "VIRUS 006",
+      "path": "wavetables/virus/Virus_WT_006.wav",
+      "frameSize": 5138,
+      "frames": 1,
+      "sha256": "30f0ef230604d41d5ff208925febf842ec1f59c5684033fb809e6c2af5c2ac01"
+    },
+    {
+      "name": "VIRUS 007",
+      "path": "wavetables/virus/Virus_WT_007.wav",
+      "frameSize": 5128,
+      "frames": 1,
+      "sha256": "3d42dd30e3e7b2bd37454ed07dc4bfcef2ce17e272852022774f799c541fc2c3"
+    },
+    {
+      "name": "VIRUS 008",
+      "path": "wavetables/virus/Virus_WT_008.wav",
+      "frameSize": 5018,
+      "frames": 1,
+      "sha256": "e5c93a2573f9808735b71dee7d320dea20771f9dd450d02058344845dbe2acbf"
+    },
+    {
+      "name": "VIRUS 009",
+      "path": "wavetables/virus/Virus_WT_009.wav",
+      "frameSize": 4876,
+      "frames": 1,
+      "sha256": "124cb136f57eba69c4fea44a5c0924ef906b40e5f04b56f1db0f06c251f13c40"
+    },
+    {
+      "name": "VIRUS 010",
+      "path": "wavetables/virus/Virus_WT_010.wav",
+      "frameSize": 7612,
+      "frames": 1,
+      "sha256": "8d210c9265b482203fe16f17f16eceed341bf4a39004cb12532dc446bce0e282"
+    },
+    {
+      "name": "VIRUS 011",
+      "path": "wavetables/virus/Virus_WT_011.wav",
+      "frameSize": 5036,
+      "frames": 1,
+      "sha256": "02eb51fbafd49ce699f9ce91211a87d36a2818fc46153764e5c6020efcb635f6"
+    },
+    {
+      "name": "VIRUS 012",
+      "path": "wavetables/virus/Virus_WT_012.wav",
+      "frameSize": 5106,
+      "frames": 1,
+      "sha256": "b4f716821c367704d1df7edb6dd67894215995dd4e809393ada6f9fb048c4ed9"
+    },
+    {
+      "name": "VIRUS 013",
+      "path": "wavetables/virus/Virus_WT_013.wav",
+      "frameSize": 5460,
+      "frames": 1,
+      "sha256": "828df10d53becfd4455e7a465f40c52ffd6b8a55ff2fa7cbbec6b9edc95ebc2a"
+    },
+    {
+      "name": "VIRUS 014",
+      "path": "wavetables/virus/Virus_WT_014.wav",
+      "frameSize": 4782,
+      "frames": 1,
+      "sha256": "a8bbeb6028d61aed55a41652a5139ebb5a72706fe1f80ee382e5619ca96dded8"
+    },
+    {
+      "name": "VIRUS 015",
+      "path": "wavetables/virus/Virus_WT_015.wav",
+      "frameSize": 4370,
+      "frames": 1,
+      "sha256": "3231bdf1925eb64cf2081fb440eb29d75a0adaf2e134692b88fa4ea547e2921e"
+    },
+    {
+      "name": "VIRUS 016",
+      "path": "wavetables/virus/Virus_WT_016.wav",
+      "frameSize": 5536,
+      "frames": 1,
+      "sha256": "352887fd6684fdebb47e5167f76d841b32d46a7da58dc2baddaf2e6fb3a43c7f"
+    },
+    {
+      "name": "VIRUS 017",
+      "path": "wavetables/virus/Virus_WT_017.wav",
+      "frameSize": 5152,
+      "frames": 1,
+      "sha256": "b37f83bce0ed0eb3cd808d07e164f04f33f6f4778aa1c25dd26a3833177d37f0"
+    },
+    {
+      "name": "VIRUS 018",
+      "path": "wavetables/virus/Virus_WT_018.wav",
+      "frameSize": 5012,
+      "frames": 1,
+      "sha256": "52884d3e0772f08b401c7e96bef073e711d209f85a5c80438d2dc55de65c3d63"
+    },
+    {
+      "name": "VIRUS 019",
+      "path": "wavetables/virus/Virus_WT_019.wav",
+      "frameSize": 7216,
+      "frames": 1,
+      "sha256": "5a9e63f37c3a4eb320651da4e6a591584ff00f890c331aac0ec63132b5f36243"
+    },
+    {
+      "name": "VIRUS 020",
+      "path": "wavetables/virus/Virus_WT_020.wav",
+      "frameSize": 5000,
+      "frames": 1,
+      "sha256": "c2add63ab2bc9fa67c575d832f913c77460a62c2614f02cc3ae9fbebafbf131d"
+    },
+    {
+      "name": "VIRUS 021",
+      "path": "wavetables/virus/Virus_WT_021.wav",
+      "frameSize": 5000,
+      "frames": 1,
+      "sha256": "c2add63ab2bc9fa67c575d832f913c77460a62c2614f02cc3ae9fbebafbf131d"
+    },
+    {
+      "name": "VIRUS 022",
+      "path": "wavetables/virus/Virus_WT_022.wav",
+      "frameSize": 4890,
+      "frames": 1,
+      "sha256": "885fd359fa8c1cb43206d47b74347477129bfe1135adee1e2681d44a793440a9"
+    },
+    {
+      "name": "VIRUS 023",
+      "path": "wavetables/virus/Virus_WT_023.wav",
+      "frameSize": 5492,
+      "frames": 1,
+      "sha256": "5a19035de249c53aff8ebd3fa430cae5663319ea17cd0ff54b762b315cdf9522"
+    },
+    {
+      "name": "VIRUS 024",
+      "path": "wavetables/virus/Virus_WT_024.wav",
+      "frameSize": 4664,
+      "frames": 1,
+      "sha256": "7d33c2c6132a031dd4e5b26cda3200275db88a4f01e3dd9bc71ee6ee25e5801c"
+    },
+    {
+      "name": "VIRUS 025",
+      "path": "wavetables/virus/Virus_WT_025.wav",
+      "frameSize": 4944,
+      "frames": 1,
+      "sha256": "709a45d21ac0067f57e7d5ba4b91d1335f844da2c74914a8af032e67c2559ead"
+    },
+    {
+      "name": "VIRUS 026",
+      "path": "wavetables/virus/Virus_WT_026.wav",
+      "frameSize": 5732,
+      "frames": 1,
+      "sha256": "a4a82c89fe28dacc3ae4f9c32c6f437721c79c674988f1eba75f28a0c3f03ace"
+    },
+    {
+      "name": "VIRUS 027",
+      "path": "wavetables/virus/Virus_WT_027.wav",
+      "frameSize": 4936,
+      "frames": 1,
+      "sha256": "8d60d5ad9fc069412d55ceaef8036f4a4783aff55f206e0fcab6bc59857d67e8"
+    },
+    {
+      "name": "VIRUS 028",
+      "path": "wavetables/virus/Virus_WT_028.wav",
+      "frameSize": 4710,
+      "frames": 1,
+      "sha256": "0296b6ad8d1c78820c8f427c4a8c4470dff92dbbc5cd1d7d032fcfc6bfd00c50"
+    },
+    {
+      "name": "VIRUS 029",
+      "path": "wavetables/virus/Virus_WT_029.wav",
+      "frameSize": 6588,
+      "frames": 1,
+      "sha256": "284e7dccf6e1cec4ff68b768e31d5fff47e61c8f544a434d0a5fb730dd40e5a0"
+    },
+    {
+      "name": "VIRUS 030",
+      "path": "wavetables/virus/Virus_WT_030.wav",
+      "frameSize": 4642,
+      "frames": 1,
+      "sha256": "a983f2981288e6a79896273e62d8f6a0c89f6f1145a4f885e3406d3df493c237"
+    },
+    {
+      "name": "VIRUS 031",
+      "path": "wavetables/virus/Virus_WT_031.wav",
+      "frameSize": 5088,
+      "frames": 1,
+      "sha256": "86be6627b6a3b3258c4947b2ffeba90f988726781fb24b05ac0366eb25e55a85"
+    },
+    {
+      "name": "VIRUS 032",
+      "path": "wavetables/virus/Virus_WT_032.wav",
+      "frameSize": 5262,
+      "frames": 1,
+      "sha256": "f1bb45e8e5a69d739514b78f48f0a909ad8a73fb80c5fea2ade2ab2bae637d95"
+    },
+    {
+      "name": "VIRUS 033",
+      "path": "wavetables/virus/Virus_WT_033.wav",
+      "frameSize": 4998,
+      "frames": 1,
+      "sha256": "28cbe9fb333bf407768735c481b7bf53ad1e746c02a2b4c6d4a161b4303b0332"
+    },
+    {
+      "name": "VIRUS 034",
+      "path": "wavetables/virus/Virus_WT_034.wav",
+      "frameSize": 4730,
+      "frames": 1,
+      "sha256": "e18307913a8c3d8e0b32d51162812d1c2916a28c410dada4f4b62942f3c5b2ae"
+    },
+    {
+      "name": "VIRUS 035",
+      "path": "wavetables/virus/Virus_WT_035.wav",
+      "frameSize": 5102,
+      "frames": 1,
+      "sha256": "eba2acb5793e9fc1ce21218871a7431b0155c929e64370844bbf3077dd7bbfef"
+    },
+    {
+      "name": "VIRUS 037",
+      "path": "wavetables/virus/Virus_WT_037.wav",
+      "frameSize": 5172,
+      "frames": 1,
+      "sha256": "7f330096fa3de1756ee5b8c56e2e6baeac4a01ba3f473067bfd7e36e1bffbd6c"
+    },
+    {
+      "name": "VIRUS 036",
+      "path": "wavetables/virus/Virus_WT_036.wav",
+      "frameSize": 5172,
+      "frames": 1,
+      "sha256": "7f330096fa3de1756ee5b8c56e2e6baeac4a01ba3f473067bfd7e36e1bffbd6c"
+    },
+    {
+      "name": "VIRUS 038",
+      "path": "wavetables/virus/Virus_WT_038.wav",
+      "frameSize": 5224,
+      "frames": 1,
+      "sha256": "614122e65fec040d1acc7f711b004de7760b13955ddfbbe0276caedf35872c97"
+    },
+    {
+      "name": "VIRUS 039",
+      "path": "wavetables/virus/Virus_WT_039.wav",
+      "frameSize": 7226,
+      "frames": 1,
+      "sha256": "8410561b80ecff070834eb5220c9653709c6229ab7a40d7f429f78cd375b80e3"
+    },
+    {
+      "name": "VIRUS 040",
+      "path": "wavetables/virus/Virus_WT_040.wav",
+      "frameSize": 4850,
+      "frames": 1,
+      "sha256": "0ac9633b7da9caf7bb4b85936a1c58627a226c1d53cb74699417e4046bb1f77a"
+    },
+    {
+      "name": "VIRUS 041",
+      "path": "wavetables/virus/Virus_WT_041.wav",
+      "frameSize": 5056,
+      "frames": 1,
+      "sha256": "750b6c3804274fe4da6220e1dd0a395313c78ab82102dc064fe3d843fe87cc74"
+    },
+    {
+      "name": "VIRUS 042",
+      "path": "wavetables/virus/Virus_WT_042.wav",
+      "frameSize": 7508,
+      "frames": 1,
+      "sha256": "d816b4a42e85eff24061dc701c16261e7227452b46e34d11ae3160e7b3eef4ac"
+    },
+    {
+      "name": "VIRUS 043",
+      "path": "wavetables/virus/Virus_WT_043.wav",
+      "frameSize": 4954,
+      "frames": 1,
+      "sha256": "b102f936bca100ae3f423b3e4491c62adfdd2c0a1ab7cc4ada09cf6397745cb9"
+    },
+    {
+      "name": "VIRUS 044",
+      "path": "wavetables/virus/Virus_WT_044.wav",
+      "frameSize": 4800,
+      "frames": 1,
+      "sha256": "f809077690da21786c9542a6030d4c2e56668c740c2a7d7344f25425c578ecfe"
+    },
+    {
+      "name": "VIRUS 045",
+      "path": "wavetables/virus/Virus_WT_045.wav",
+      "frameSize": 8002,
+      "frames": 1,
+      "sha256": "886d3d048a93e061496463d9757eeb6a1f04e6de31c36146b9a96299b3f1948f"
+    },
+    {
+      "name": "VIRUS 046",
+      "path": "wavetables/virus/Virus_WT_046.wav",
+      "frameSize": 4956,
+      "frames": 1,
+      "sha256": "c7f7a8cc0eba0d374d9e93e46d515728ffbe5ff9d5a031cd067ffeef8b544293"
+    },
+    {
+      "name": "VIRUS 047",
+      "path": "wavetables/virus/Virus_WT_047.wav",
+      "frameSize": 4742,
+      "frames": 1,
+      "sha256": "11ec8d7530518fc4464d2e83b57f1429dddec856cb6dd645d5da8eddf2ce1ff9"
+    },
+    {
+      "name": "VIRUS 048",
+      "path": "wavetables/virus/Virus_WT_048.wav",
+      "frameSize": 4828,
+      "frames": 1,
+      "sha256": "cca59a8d0874f2c05cd48e242c1ef3b990b331fdfb664997ba6f15642a685acc"
+    },
+    {
+      "name": "VIRUS 049",
+      "path": "wavetables/virus/Virus_WT_049.wav",
+      "frameSize": 4998,
+      "frames": 1,
+      "sha256": "cfbb96529f197995518fbc161a6e6090dd04ffe9cb8d8f26a252e3b0d27a8eb6"
+    },
+    {
+      "name": "VIRUS 050",
+      "path": "wavetables/virus/Virus_WT_050.wav",
+      "frameSize": 4872,
+      "frames": 1,
+      "sha256": "99afd5fdcf08093f7cb8f700250cf89a736c681903c147fe97335c46d9e2a1af"
+    },
+    {
+      "name": "VIRUS 051",
+      "path": "wavetables/virus/Virus_WT_051.wav",
+      "frameSize": 7110,
+      "frames": 1,
+      "sha256": "625af625e485ebe7be0713c1b12d99fa8ef15be95dba2828729d61d1fc04fce3"
+    },
+    {
+      "name": "VIRUS 052",
+      "path": "wavetables/virus/Virus_WT_052.wav",
+      "frameSize": 5424,
+      "frames": 1,
+      "sha256": "28d2c4a9483a051b4e3f6b7827e9fb2c9a3b5938a56a297ed9b6b1046b448072"
+    },
+    {
+      "name": "VIRUS 053",
+      "path": "wavetables/virus/Virus_WT_053.wav",
+      "frameSize": 5062,
+      "frames": 1,
+      "sha256": "b4ad261f8cb871fc3a876109bbab30c85d2626115f4d0360004f5538e936bc47"
+    },
+    {
+      "name": "VIRUS 054",
+      "path": "wavetables/virus/Virus_WT_054.wav",
+      "frameSize": 7128,
+      "frames": 1,
+      "sha256": "9531e0c0ad1b071dfece0c30d29aaa28fb546944a6f42097d54ebe3c01178bc5"
+    },
+    {
+      "name": "VIRUS 055",
+      "path": "wavetables/virus/Virus_WT_055.wav",
+      "frameSize": 5122,
+      "frames": 1,
+      "sha256": "01b9e787ba6c62cace91bbf74b8341a014710ce65ba5e90f96c8d8d9e0f83d28"
+    },
+    {
+      "name": "VIRUS 056",
+      "path": "wavetables/virus/Virus_WT_056.wav",
+      "frameSize": 5134,
+      "frames": 1,
+      "sha256": "20143621820c339f3da30adef0c63350d67284c9ab08f27382e49b9ff29faed9"
+    },
+    {
+      "name": "VIRUS 057",
+      "path": "wavetables/virus/Virus_WT_057.wav",
+      "frameSize": 5256,
+      "frames": 1,
+      "sha256": "fb3d1ace3095fa56a9ea10c7a88f884395b1711cf2d94cd01659ba5f9ce51cd2"
+    },
+    {
+      "name": "VIRUS 058",
+      "path": "wavetables/virus/Virus_WT_058.wav",
+      "frameSize": 5090,
+      "frames": 1,
+      "sha256": "5746dc60ee4bdf2c55a98b820fc91140673ab8c6109b465d672713294df513e0"
+    },
+    {
+      "name": "VIRUS 059",
+      "path": "wavetables/virus/Virus_WT_059.wav",
+      "frameSize": 5114,
+      "frames": 1,
+      "sha256": "8f70a42b41e1fbb28c861ed9a6920c082c004309e06e347b6af293c25ed7b6ca"
+    },
+    {
+      "name": "VIRUS 060",
+      "path": "wavetables/virus/Virus_WT_060.wav",
+      "frameSize": 6420,
+      "frames": 1,
+      "sha256": "84ba54c7919b5936dbb516d43c991a60b0994b0f9b891f705b87faeddcef77f1"
+    },
+    {
+      "name": "VIRUS 061",
+      "path": "wavetables/virus/Virus_WT_061.wav",
+      "frameSize": 4146,
+      "frames": 1,
+      "sha256": "a33fe5fe5f6f1370a356a8916f375f2077d64b5f186e28d829a669d7ffcb9544"
+    },
+    {
+      "name": "VIRUS 062",
+      "path": "wavetables/virus/Virus_WT_062.wav",
+      "frameSize": 5198,
+      "frames": 1,
+      "sha256": "b0406a40a36ca3444217066db0b8af77b72210688f81a287df095f7832d7ff7c"
+    },
+    {
+      "name": "VIRUS 063",
+      "path": "wavetables/virus/Virus_WT_063.wav",
+      "frameSize": 6694,
+      "frames": 1,
+      "sha256": "ec294b2a3df2dacac81a1bdf558520047433c1cb04f42dc50f2087a47034ed60"
+    },
+    {
+      "name": "VIRUS 064",
+      "path": "wavetables/virus/Virus_WT_064.wav",
+      "frameSize": 4978,
+      "frames": 1,
+      "sha256": "24c94393583b769b6bff8e6b070c0e451840abae5620b2f6db4f4bfa361dcebe"
+    },
+    {
+      "name": "VIRUS 065",
+      "path": "wavetables/virus/Virus_WT_065.wav",
+      "frameSize": 5132,
+      "frames": 1,
+      "sha256": "1e8b2188075302ad7fd9f95044ea67ddbbbec1aef273155646d7fdd7e8bbce1f"
+    },
+    {
+      "name": "VIRUS 066",
+      "path": "wavetables/virus/Virus_WT_066.wav",
+      "frameSize": 4924,
+      "frames": 1,
+      "sha256": "0742c6b55db3d29058ad32479dce0954fd763e24d245456feabb3fabf854c564"
+    },
+    {
+      "name": "VIRUS 067",
+      "path": "wavetables/virus/Virus_WT_067.wav",
+      "frameSize": 4924,
+      "frames": 1,
+      "sha256": "0742c6b55db3d29058ad32479dce0954fd763e24d245456feabb3fabf854c564"
+    },
+    {
+      "name": "VIRUS 068",
+      "path": "wavetables/virus/Virus_WT_068.wav",
+      "frameSize": 1582,
+      "frames": 1,
+      "sha256": "1bc26999617678f632ac8b69b7ab4c2f24fa6d8fc012d9c964591850124cbde5"
+    },
+    {
+      "name": "VIRUS 069",
+      "path": "wavetables/virus/Virus_WT_069.wav",
+      "frameSize": 4832,
+      "frames": 1,
+      "sha256": "02cb828e0f5a42fdccc54e25047e86b080a2a1f1f22550c44ddf920a967bb56a"
+    },
+    {
+      "name": "VIRUS 070",
+      "path": "wavetables/virus/Virus_WT_070.wav",
+      "frameSize": 5740,
+      "frames": 1,
+      "sha256": "afe030dbe7e24cfe0db0b1dc9f4f9c591882e6257682ceaccf7ea309f0b303d3"
+    },
+    {
+      "name": "VIRUS 071",
+      "path": "wavetables/virus/Virus_WT_071.wav",
+      "frameSize": 5088,
+      "frames": 1,
+      "sha256": "a2d1a9071fc64efce9b50ded0385d88233561112ac0803fda89fbd4d9edac623"
+    },
+    {
+      "name": "VIRUS 072",
+      "path": "wavetables/virus/Virus_WT_072.wav",
+      "frameSize": 5324,
+      "frames": 1,
+      "sha256": "11e191f91ccd5f20325a881d36986f015098ae49b63bfdb05b24ffa9020cb322"
+    },
+    {
+      "name": "VIRUS 073",
+      "path": "wavetables/virus/Virus_WT_073.wav",
+      "frameSize": 5418,
+      "frames": 1,
+      "sha256": "c56d92c0a6eb81cd0333005519358a89b473407791562efe5350f3c77a672a65"
+    },
+    {
+      "name": "VIRUS 074",
+      "path": "wavetables/virus/Virus_WT_074.wav",
+      "frameSize": 3848,
+      "frames": 1,
+      "sha256": "f6abc5ca2a9f27201cf9c6137ab89bccc39a17184dd3a0e47b1667055be90386"
+    },
+    {
+      "name": "VIRUS 075",
+      "path": "wavetables/virus/Virus_WT_075.wav",
+      "frameSize": 4930,
+      "frames": 1,
+      "sha256": "a4e636f4c494c0faa7c6cf0f0e092814d3908c3303199c577d5cbae21dfea794"
+    },
+    {
+      "name": "VIRUS 076",
+      "path": "wavetables/virus/Virus_WT_076.wav",
+      "frameSize": 5434,
+      "frames": 1,
+      "sha256": "f231399e87d9e235005e322f803665377f57a248f882c30ada770c0ccec402b5"
+    },
+    {
+      "name": "VIRUS 077",
+      "path": "wavetables/virus/Virus_WT_077.wav",
+      "frameSize": 2528,
+      "frames": 1,
+      "sha256": "7894d4f6337b8a5c1ddc09c1a0e9c8789d3187690dbceed5707949b11a43b41d"
+    },
+    {
+      "name": "VIRUS 078",
+      "path": "wavetables/virus/Virus_WT_078.wav",
+      "frameSize": 5244,
+      "frames": 1,
+      "sha256": "b42d654b7547bd033bc74c310dfe9b48c7d72c55d91b5390a3ba6432106afd10"
+    },
+    {
+      "name": "VIRUS 079",
+      "path": "wavetables/virus/Virus_WT_079.wav",
+      "frameSize": 6534,
+      "frames": 1,
+      "sha256": "5808233bd7a93861bba5480016609ee54519cd4cb22a145d57f270c7afae86b1"
+    },
+    {
+      "name": "VIRUS 080",
+      "path": "wavetables/virus/Virus_WT_080.wav",
+      "frameSize": 2012,
+      "frames": 1,
+      "sha256": "21f1f9d3436094b57daf5cf30a22805b135f4787d19914670163730430cc12c0"
+    },
+    {
+      "name": "VIRUS 081",
+      "path": "wavetables/virus/Virus_WT_081.wav",
+      "frameSize": 5060,
+      "frames": 1,
+      "sha256": "5f280052e1affdfb2916a10b519f8e63ec1c9013c5802feca431ef2c2ebf0e0f"
+    },
+    {
+      "name": "VIRUS 082",
+      "path": "wavetables/virus/Virus_WT_082.wav",
+      "frameSize": 2870,
+      "frames": 1,
+      "sha256": "78ffd2cb288d5528b984e7dbc0213ee77a3b3cec284d11434d70fac69093597b"
+    },
+    {
+      "name": "VIRUS 083",
+      "path": "wavetables/virus/Virus_WT_083.wav",
+      "frameSize": 2270,
+      "frames": 1,
+      "sha256": "97cfc9f6780bc2c83765a5fcdc8408b814f32a73fd8e4757a982c96d230fbdbc"
+    },
+    {
+      "name": "VIRUS 084",
+      "path": "wavetables/virus/Virus_WT_084.wav",
+      "frameSize": 4394,
+      "frames": 1,
+      "sha256": "ad2c8c1c0ea96af8a69a09cd7d983cb997df6d5591d8f569be8dcc80f57ec446"
+    },
+    {
+      "name": "VIRUS 085",
+      "path": "wavetables/virus/Virus_WT_085.wav",
+      "frameSize": 4368,
+      "frames": 1,
+      "sha256": "c9da7b8616601a2503651f45c54b11c09acaf0850e88c780ce174a288e8b7cb1"
+    },
+    {
+      "name": "VIRUS 086",
+      "path": "wavetables/virus/Virus_WT_086.wav",
+      "frameSize": 2024,
+      "frames": 1,
+      "sha256": "bfb8ac6d4d1338901599a15c96ed1f7ef545921066688c024f20f9c8e54b79e6"
+    },
+    {
+      "name": "VIRUS 087",
+      "path": "wavetables/virus/Virus_WT_087.wav",
+      "frameSize": 5176,
+      "frames": 1,
+      "sha256": "1b6b2df7b10cac0403fb6678e374f2cfccb592a651b2eec4e9a5df1c3c00d33a"
+    },
+    {
+      "name": "VIRUS 088",
+      "path": "wavetables/virus/Virus_WT_088.wav",
+      "frameSize": 3236,
+      "frames": 1,
+      "sha256": "37893414dbc83d7806e1102fafea951c9e3ba3633cfdb059f1078eb1fd25924c"
+    },
+    {
+      "name": "VIRUS 089",
+      "path": "wavetables/virus/Virus_WT_089.wav",
+      "frameSize": 3236,
+      "frames": 1,
+      "sha256": "37893414dbc83d7806e1102fafea951c9e3ba3633cfdb059f1078eb1fd25924c"
+    },
+    {
+      "name": "VIRUS 090",
+      "path": "wavetables/virus/Virus_WT_090.wav",
+      "frameSize": 1192,
+      "frames": 1,
+      "sha256": "8c073002dde378133c01ed3c45593737c3c415cc3513e601c0a4962f2d9184af"
+    },
+    {
+      "name": "VIRUS 091",
+      "path": "wavetables/virus/Virus_WT_091.wav",
+      "frameSize": 4860,
+      "frames": 1,
+      "sha256": "ee926f917cee8ce8547747657c7177b8bbf5887529850345e7bd8809861b453d"
+    },
+    {
+      "name": "VIRUS 092",
+      "path": "wavetables/virus/Virus_WT_092.wav",
+      "frameSize": 3726,
+      "frames": 1,
+      "sha256": "181f039cd68f21ba4980c4159801761f00598595e07416a1ebf36b37c244f79b"
+    },
+    {
+      "name": "VIRUS 093",
+      "path": "wavetables/virus/Virus_WT_093.wav",
+      "frameSize": 1712,
+      "frames": 1,
+      "sha256": "d24673226e965922795b7354f32993ad3fd0aff9849c752f2dc0b42d877f7f09"
+    },
+    {
+      "name": "VIRUS 094",
+      "path": "wavetables/virus/Virus_WT_094.wav",
+      "frameSize": 5168,
+      "frames": 1,
+      "sha256": "5f7414a5228bb8da28becf47aad9d34a1d96247d847de0a4c8a076d5ba839d6e"
+    },
+    {
+      "name": "VIRUS 095",
+      "path": "wavetables/virus/Virus_WT_095.wav",
+      "frameSize": 4016,
+      "frames": 1,
+      "sha256": "895aa03f77f244ab6a31892529fef23f446241c2006893a84461e64c5b069731"
+    },
+    {
+      "name": "VIRUS 096",
+      "path": "wavetables/virus/Virus_WT_096.wav",
+      "frameSize": 1840,
+      "frames": 1,
+      "sha256": "fb427e3045c49f4a5198223710005a20f9b323ea515e4269ca9de53cda062ad9"
+    },
+    {
+      "name": "VIRUS 097",
+      "path": "wavetables/virus/Virus_WT_097.wav",
+      "frameSize": 4906,
+      "frames": 1,
+      "sha256": "8cf719f78ab0bf4fc24db550be54e2e1e46f77fdf0a9490843feb81ea1a9365f"
+    },
+    {
+      "name": "VIRUS 098",
+      "path": "wavetables/virus/Virus_WT_098.wav",
+      "frameSize": 3564,
+      "frames": 1,
+      "sha256": "7bbd6becbe75443fb93c57a21335c695b8d553cec4121cbdab5fd34ece045d3d"
+    },
+    {
+      "name": "VIRUS 099",
+      "path": "wavetables/virus/Virus_WT_099.wav",
+      "frameSize": 1452,
+      "frames": 1,
+      "sha256": "99cb3b836ca92cd4380965522542890b321500b8a7645cb39679a6255565a1d4"
+    },
+    {
+      "name": "VIRUS 100",
+      "path": "wavetables/virus/Virus_WT_100.wav",
+      "frameSize": 4284,
+      "frames": 1,
+      "sha256": "3bf0153f27274063b24d49a5156efc5d7b431402b356e44ee220f7e1369c7b26"
+    },
+    {
+      "name": "VIRUS 101",
+      "path": "wavetables/virus/Virus_WT_101.wav",
+      "frameSize": 5070,
+      "frames": 1,
+      "sha256": "81cbf2143a49db47230c574f9744066496f88c267978a7a54309a41b75fb7f7a"
+    },
+    {
+      "name": "VIRUS 102",
+      "path": "wavetables/virus/Virus_WT_102.wav",
+      "frameSize": 5056,
+      "frames": 1,
+      "sha256": "06786aa1dacce71f593538925130aaede7957795a2a5153b3bdaf9207832bd6f"
+    },
+    {
+      "name": "VIRUS 103",
+      "path": "wavetables/virus/Virus_WT_103.wav",
+      "frameSize": 5056,
+      "frames": 1,
+      "sha256": "06786aa1dacce71f593538925130aaede7957795a2a5153b3bdaf9207832bd6f"
+    },
+    {
+      "name": "VIRUS 104",
+      "path": "wavetables/virus/Virus_WT_104.wav",
+      "frameSize": 4846,
+      "frames": 1,
+      "sha256": "32a534420eca67c9e2ab5e9e01897d52da719efdcf580f61728aba823f8f1281"
+    },
+    {
+      "name": "VIRUS 105",
+      "path": "wavetables/virus/Virus_WT_105.wav",
+      "frameSize": 5606,
+      "frames": 1,
+      "sha256": "ee0a64e310d8d0f2b72c422ef1497622aae40d19963ed1a7919a27a7ad7fca7d"
+    },
+    {
+      "name": "VIRUS 106",
+      "path": "wavetables/virus/Virus_WT_106.wav",
+      "frameSize": 5072,
+      "frames": 1,
+      "sha256": "329990c72b1c5aa51a4e8656b2580ea92ecde90fc6c6e6cd0f9f09cf464e2d80"
+    },
+    {
+      "name": "VIRUS 107",
+      "path": "wavetables/virus/Virus_WT_107.wav",
+      "frameSize": 5168,
+      "frames": 1,
+      "sha256": "fce42738db502e02b1173bc8636d8a72f756c71a2cff18897737e0b819a989d5"
+    },
+    {
+      "name": "VIRUS 108",
+      "path": "wavetables/virus/Virus_WT_108.wav",
+      "frameSize": 5822,
+      "frames": 1,
+      "sha256": "4e86d359578d9812dace8c8189635c976685f1575b1ccc41299b32d28df87896"
+    },
+    {
+      "name": "VIRUS 109",
+      "path": "wavetables/virus/Virus_WT_109.wav",
+      "frameSize": 5156,
+      "frames": 1,
+      "sha256": "a91994da880d38b3b0893873d782d571898aa15f22572f8885697d245081dd06"
+    },
+    {
+      "name": "VIRUS 110",
+      "path": "wavetables/virus/Virus_WT_110.wav",
+      "frameSize": 5098,
+      "frames": 1,
+      "sha256": "670cf072cd14ae66659ec7dac7a4748f667ddb07dc09cc4e4f5a27c80f30d2dd"
+    },
+    {
+      "name": "VIRUS 111",
+      "path": "wavetables/virus/Virus_WT_111.wav",
+      "frameSize": 5830,
+      "frames": 1,
+      "sha256": "ab67b0cebeb5c3dae5f9e1115a8e10799f8dbfb257294bcc4fa1c13d44a121fa"
+    },
+    {
+      "name": "VIRUS 112",
+      "path": "wavetables/virus/Virus_WT_112.wav",
+      "frameSize": 5186,
+      "frames": 1,
+      "sha256": "eada21493074036a02360a50c9c1133f6c981d8a0d6cdba19dadceb783979c33"
+    },
+    {
+      "name": "VIRUS 113",
+      "path": "wavetables/virus/Virus_WT_113.wav",
+      "frameSize": 4824,
+      "frames": 1,
+      "sha256": "4f5a214f4d30762296960013eb0f711559078eb660af27cc22a2ac82ad877250"
+    },
+    {
+      "name": "VIRUS 114",
+      "path": "wavetables/virus/Virus_WT_114.wav",
+      "frameSize": 5810,
+      "frames": 1,
+      "sha256": "8f8afd5f2487b5084bdfe28aaa721cc703266c8ce99530918e7e73f9396ccd04"
+    },
+    {
+      "name": "VIRUS 115",
+      "path": "wavetables/virus/Virus_WT_115.wav",
+      "frameSize": 5146,
+      "frames": 1,
+      "sha256": "183aea57d2ac9b3badbc8067b86109bbb9903c7cf0df45392b10593442be9272"
+    },
+    {
+      "name": "VIRUS 116",
+      "path": "wavetables/virus/Virus_WT_116.wav",
+      "frameSize": 4934,
+      "frames": 1,
+      "sha256": "a524a5fcd5131aaa549fcc9a0ab27395b2ed07f08da5565a87b18fe4b3861406"
+    },
+    {
+      "name": "VIRUS 117",
+      "path": "wavetables/virus/Virus_WT_117.wav",
+      "frameSize": 5084,
+      "frames": 1,
+      "sha256": "f23bf51dd7d61a7ed3b68f87c3a0395ee8dfcf11a27500e5c9aa3b7c50a4cb22"
+    },
+    {
+      "name": "VIRUS 118",
+      "path": "wavetables/virus/Virus_WT_118.wav",
+      "frameSize": 5032,
+      "frames": 1,
+      "sha256": "0d2506e1c84abe8893bf2446d06ebb617821c493fdac0b81020cc392673338b5"
+    },
+    {
+      "name": "VIRUS 119",
+      "path": "wavetables/virus/Virus_WT_119.wav",
+      "frameSize": 4994,
+      "frames": 1,
+      "sha256": "fc201a7df3ac5832db05a1f78dc45ee5feb6e6e98fa3873c67fabfa62e397357"
+    },
+    {
+      "name": "VIRUS 120",
+      "path": "wavetables/virus/Virus_WT_120.wav",
+      "frameSize": 5596,
+      "frames": 1,
+      "sha256": "17465093a04402bc19ad10631f35fe46dd967aff99f3c84433d7f61b0356f21a"
+    },
+    {
+      "name": "VIRUS 121",
+      "path": "wavetables/virus/Virus_WT_121.wav",
+      "frameSize": 5166,
+      "frames": 1,
+      "sha256": "7d8cacf62076b412ac758299f1cc42e891bdb9327fcb5419ddf4be3baf8606c9"
+    },
+    {
+      "name": "VIRUS 122",
+      "path": "wavetables/virus/Virus_WT_122.wav",
+      "frameSize": 4750,
+      "frames": 1,
+      "sha256": "3dc56dde6ea67fa0b1a63f39e42c2fd1684b4cab0fae6080727ad04058d1462c"
+    },
+    {
+      "name": "VIRUS 123",
+      "path": "wavetables/virus/Virus_WT_123.wav",
+      "frameSize": 6796,
+      "frames": 1,
+      "sha256": "67b65e45a15a7f24c3175e87b44645733096b9bd8b805190e7dcf3ec14169c97"
+    },
+    {
+      "name": "VIRUS 124",
+      "path": "wavetables/virus/Virus_WT_124.wav",
+      "frameSize": 5116,
+      "frames": 1,
+      "sha256": "c2b6533dd585d68f1ae44caab3df7a15d93b9ab829113744ae906fbefc7a84d7"
+    },
+    {
+      "name": "VIRUS 125",
+      "path": "wavetables/virus/Virus_WT_125.wav",
+      "frameSize": 4924,
+      "frames": 1,
+      "sha256": "2e9c5eae685edafdc6e96299f99e205133440ecbeb0329a02da58deabc14808f"
+    },
+    {
+      "name": "VIRUS 127",
+      "path": "wavetables/virus/Virus_WT_127.wav",
+      "frameSize": 5338,
+      "frames": 1,
+      "sha256": "a34a10930974a64fb79aa9f152a18e6cee337e9e0ec243656679dc37ba39d371"
+    },
+    {
+      "name": "VIRUS 126",
+      "path": "wavetables/virus/Virus_WT_126.wav",
+      "frameSize": 5338,
+      "frames": 1,
+      "sha256": "a34a10930974a64fb79aa9f152a18e6cee337e9e0ec243656679dc37ba39d371"
+    },
+    {
+      "name": "VIRUS 128",
+      "path": "wavetables/virus/Virus_WT_128.wav",
+      "frameSize": 4984,
+      "frames": 1,
+      "sha256": "38fc72257100d22f044089ffb9aea3ba515175f2118e19883720a54840fc181a"
+    },
+    {
+      "name": "VIRUS 129",
+      "path": "wavetables/virus/Virus_WT_129.wav",
+      "frameSize": 4562,
+      "frames": 1,
+      "sha256": "eaa44b3752a415e4f7d6cd57a5330c558481782d2e7e2b08940f6d8a599e3b5d"
+    },
+    {
+      "name": "VIRUS 130",
+      "path": "wavetables/virus/Virus_WT_130.wav",
+      "frameSize": 5186,
+      "frames": 1,
+      "sha256": "4c41cae1abf9202d92b082f1969e685d8de24b1a1a1dda23e54b444f502c28ee"
+    },
+    {
+      "name": "VIRUS 131",
+      "path": "wavetables/virus/Virus_WT_131.wav",
+      "frameSize": 5206,
+      "frames": 1,
+      "sha256": "793ebdf638b1dcc87f9698314ede5920a91c87b2add484e2ed5299075839198f"
+    },
+    {
+      "name": "VIRUS 132",
+      "path": "wavetables/virus/Virus_WT_132.wav",
+      "frameSize": 5158,
+      "frames": 1,
+      "sha256": "d9733b06f4e026ee4fb4861688c5c8ba19cb09d097a162cf755a077f4fe53032"
+    },
+    {
+      "name": "VIRUS 133",
+      "path": "wavetables/virus/Virus_WT_133.wav",
+      "frameSize": 6682,
+      "frames": 1,
+      "sha256": "b6c5c8ef21cd379ce5e5f1776d4f5358f1ad4235ee634b81e0c6192e3446cf64"
+    },
+    {
+      "name": "VIRUS 134",
+      "path": "wavetables/virus/Virus_WT_134.wav",
+      "frameSize": 4962,
+      "frames": 1,
+      "sha256": "9a95069573c1e2c112c350715e39915d0693c858bc011708257a2b6550b5ca16"
+    },
+    {
+      "name": "VIRUS 135",
+      "path": "wavetables/virus/Virus_WT_135.wav",
+      "frameSize": 4880,
+      "frames": 1,
+      "sha256": "0ffcba9287fb1f0f730939da6320bba4b794a13ad0f65386be453f21a25c5717"
+    },
+    {
+      "name": "VIRUS 136",
+      "path": "wavetables/virus/Virus_WT_136.wav",
+      "frameSize": 6820,
+      "frames": 1,
+      "sha256": "17daefc462a0a5bebeb29ed1a5c6ed9ac9f2786bed29506d8b9d4ced8f3339c3"
+    },
+    {
+      "name": "VIRUS 137",
+      "path": "wavetables/virus/Virus_WT_137.wav",
+      "frameSize": 6820,
+      "frames": 1,
+      "sha256": "17daefc462a0a5bebeb29ed1a5c6ed9ac9f2786bed29506d8b9d4ced8f3339c3"
+    },
+    {
+      "name": "VIRUS 138",
+      "path": "wavetables/virus/Virus_WT_138.wav",
+      "frameSize": 5828,
+      "frames": 1,
+      "sha256": "0e4830223e8a397601da468b7be9d864e1d8f66a34b0acbdd1e3a02e38860958"
+    },
+    {
+      "name": "VIRUS 139",
+      "path": "wavetables/virus/Virus_WT_139.wav",
+      "frameSize": 5054,
+      "frames": 1,
+      "sha256": "66b8148a77d0b575f502b74b334cb3242329ca6419b616b374b27a1db0289917"
+    },
+    {
+      "name": "VIRUS 140",
+      "path": "wavetables/virus/Virus_WT_140.wav",
+      "frameSize": 6058,
+      "frames": 1,
+      "sha256": "84da8397baf12818d952595b6b17f0ca07a378bfceb3eadd5d5e26e677b89df5"
+    },
+    {
+      "name": "VIRUS 141",
+      "path": "wavetables/virus/Virus_WT_141.wav",
+      "frameSize": 4998,
+      "frames": 1,
+      "sha256": "31243a2b717e5e7eb24ee2f31bda1fba93de2f5a88b97add5cfb06431c387e93"
+    },
+    {
+      "name": "VIRUS 142",
+      "path": "wavetables/virus/Virus_WT_142.wav",
+      "frameSize": 5158,
+      "frames": 1,
+      "sha256": "90203d4e346eca3689d124b3aaef9899f632f8de91f15778112107db03780a8d"
+    },
+    {
+      "name": "VIRUS 143",
+      "path": "wavetables/virus/Virus_WT_143.wav",
+      "frameSize": 4934,
+      "frames": 1,
+      "sha256": "56da145396ea6e8b9b9b68984f6167a28e1fec02a475f987cb360054ef8542a1"
+    },
+    {
+      "name": "VIRUS 144",
+      "path": "wavetables/virus/Virus_WT_144.wav",
+      "frameSize": 4706,
+      "frames": 1,
+      "sha256": "795f3cb0ee68177341c5fc9a5417d77bc890cbb03a779f0f7c608e2c68ab1649"
+    },
+    {
+      "name": "VIRUS 145",
+      "path": "wavetables/virus/Virus_WT_145.wav",
+      "frameSize": 4878,
+      "frames": 1,
+      "sha256": "38e0ee474aaf61b4ee4252f3a535017c6343d99d871658a5c4fae51d7ace557b"
+    },
+    {
+      "name": "VIRUS 146",
+      "path": "wavetables/virus/Virus_WT_146.wav",
+      "frameSize": 5562,
+      "frames": 1,
+      "sha256": "976bd6ca33c5925bd390150e53ab3a92898a079d4e3c36bc84680035af7a515e"
+    },
+    {
+      "name": "VIRUS 147",
+      "path": "wavetables/virus/Virus_WT_147.wav",
+      "frameSize": 5014,
+      "frames": 1,
+      "sha256": "1675c175a515932b540a3ad94e59d3a357cd9dfff503a208b107b3f8183b4c90"
+    },
+    {
+      "name": "VIRUS 148",
+      "path": "wavetables/virus/Virus_WT_148.wav",
+      "frameSize": 4886,
+      "frames": 1,
+      "sha256": "a14d6adaca64c9334038381236b27cc422ea50f82096fb78c1a17b3537ca646d"
+    },
+    {
+      "name": "VIRUS 149",
+      "path": "wavetables/virus/Virus_WT_149.wav",
+      "frameSize": 6024,
+      "frames": 1,
+      "sha256": "e3e55f2fea3d9ef57fddcfc0463bfa876a1c297f06941b2d6b71a1fff145022f"
+    },
+    {
+      "name": "VIRUS 150",
+      "path": "wavetables/virus/Virus_WT_150.wav",
+      "frameSize": 5482,
+      "frames": 1,
+      "sha256": "f664761ad2c20aa85173bc64ed149a23dd7e4df848161857eb171ad34c7f7407"
+    },
+    {
+      "name": "VIRUS 151",
+      "path": "wavetables/virus/Virus_WT_151.wav",
+      "frameSize": 4846,
+      "frames": 1,
+      "sha256": "69bd4edaec5dc9f34ce1ab1d2d34962b7470d2a5858fb6c477b55bf79c526dc0"
+    },
+    {
+      "name": "VIRUS 152",
+      "path": "wavetables/virus/Virus_WT_152.wav",
+      "frameSize": 6744,
+      "frames": 1,
+      "sha256": "32dc3770e741543d3bb2d2213fc05a8ee442f17dab39fccad4b9b2ef303088e6"
+    },
+    {
+      "name": "VIRUS 153",
+      "path": "wavetables/virus/Virus_WT_153.wav",
+      "frameSize": 5026,
+      "frames": 1,
+      "sha256": "477e08a2460f9c07438ba39c282795680426d9e4354ce8e9a10f3cde88f72c05"
+    },
+    {
+      "name": "VIRUS 154",
+      "path": "wavetables/virus/Virus_WT_154.wav",
+      "frameSize": 5098,
+      "frames": 1,
+      "sha256": "848c601823bf13d7fc0476739c99b376ebb69b5755b680c61135fe3bdebc9fd9"
+    },
+    {
+      "name": "VIRUS 155",
+      "path": "wavetables/virus/Virus_WT_155.wav",
+      "frameSize": 6812,
+      "frames": 1,
+      "sha256": "0283ecb528313f5f84cdab96e6989bec733e726efb24d4e21ee679d9e491710a"
+    },
+    {
+      "name": "VIRUS 156",
+      "path": "wavetables/virus/Virus_WT_156.wav",
+      "frameSize": 5464,
+      "frames": 1,
+      "sha256": "54a3d444ec7c42e9a063c37ca3d8acdf0dbc16e831d72d147932acd0a597f3dd"
+    },
+    {
+      "name": "VIRUS 157",
+      "path": "wavetables/virus/Virus_WT_157.wav",
+      "frameSize": 4926,
+      "frames": 1,
+      "sha256": "c45f6072e95ddb273819cb9fcdc79576582d8b1f01b022aa83b2d9f83e6fec6b"
+    },
+    {
+      "name": "VIRUS 158",
+      "path": "wavetables/virus/Virus_WT_158.wav",
+      "frameSize": 6142,
+      "frames": 1,
+      "sha256": "3b928f6a38095d21d79fe07f443e1b54faa004077fd92529ba0b6bb367b630e2"
+    },
+    {
+      "name": "VIRUS 159",
+      "path": "wavetables/virus/Virus_WT_159.wav",
+      "frameSize": 5146,
+      "frames": 1,
+      "sha256": "0c6f285f872e1327ab6c17307a3f10dc16fe6c834cfa7d2b2d9be9d5348cce3c"
+    },
+    {
+      "name": "VIRUS 160",
+      "path": "wavetables/virus/Virus_WT_160.wav",
+      "frameSize": 5284,
+      "frames": 1,
+      "sha256": "e86f8a5a3824efccdaa4b4a3ecdb5974c76a32df4d9822da019ae290e5e9ceeb"
+    },
+    {
+      "name": "VIRUS 161",
+      "path": "wavetables/virus/Virus_WT_161.wav",
+      "frameSize": 6742,
+      "frames": 1,
+      "sha256": "0716d8fe42af9ae6e4b8efc6d07c7b0d126716ee88fa93bff723b92fb8f83323"
+    },
+    {
+      "name": "VIRUS 162",
+      "path": "wavetables/virus/Virus_WT_162.wav",
+      "frameSize": 5148,
+      "frames": 1,
+      "sha256": "512a32e7508242cdc774bba7e5f0c8f504564cb717c25f16091489145d54f9d2"
+    },
+    {
+      "name": "VIRUS 163",
+      "path": "wavetables/virus/Virus_WT_163.wav",
+      "frameSize": 4866,
+      "frames": 1,
+      "sha256": "d1b21a392ed56c6865a1f6ce51287aae2500cace6c7bfed1314689db4276e286"
+    },
+    {
+      "name": "VIRUS 164",
+      "path": "wavetables/virus/Virus_WT_164.wav",
+      "frameSize": 5536,
+      "frames": 1,
+      "sha256": "5c48e6b2cab306f32d8eefce342a2dde1a2316e32ee84f9ba58250d3531fc6bd"
+    },
+    {
+      "name": "VIRUS 165",
+      "path": "wavetables/virus/Virus_WT_165.wav",
+      "frameSize": 4908,
+      "frames": 1,
+      "sha256": "320ad342b28c04232cff3f19075e510a1315da53e256eab2e5535c74dbff1814"
+    },
+    {
+      "name": "VIRUS 166",
+      "path": "wavetables/virus/Virus_WT_166.wav",
+      "frameSize": 5096,
+      "frames": 1,
+      "sha256": "7da10eeb1c92715b5867e3a253126d44d3d290702e609ce8d959da15b72c4ad8"
+    },
+    {
+      "name": "VIRUS 167",
+      "path": "wavetables/virus/Virus_WT_167.wav",
+      "frameSize": 5472,
+      "frames": 1,
+      "sha256": "d4fee28bf5f785ad2b9532b913c4b91d62ee70599387d3c96ba8eecf8aa4b8b5"
+    },
+    {
+      "name": "VIRUS 168",
+      "path": "wavetables/virus/Virus_WT_168.wav",
+      "frameSize": 5244,
+      "frames": 1,
+      "sha256": "40be490d8335d180c776e3de765cadce140f4bff13146154798549040917956b"
+    },
+    {
+      "name": "VIRUS 169",
+      "path": "wavetables/virus/Virus_WT_169.wav",
+      "frameSize": 5188,
+      "frames": 1,
+      "sha256": "83d596fb087126f1ed4b87bc5f853a2da205189eccf9ab6f0c9b52029ce04c3c"
+    },
+    {
+      "name": "VIRUS 170",
+      "path": "wavetables/virus/Virus_WT_170.wav",
+      "frameSize": 6056,
+      "frames": 1,
+      "sha256": "ba7c5df782fb5234ca1b263967d05ebcc114b0f9aed891dcc60e7a45abaa80a2"
+    },
+    {
+      "name": "VIRUS 171",
+      "path": "wavetables/virus/Virus_WT_171.wav",
+      "frameSize": 6056,
+      "frames": 1,
+      "sha256": "ba7c5df782fb5234ca1b263967d05ebcc114b0f9aed891dcc60e7a45abaa80a2"
+    },
+    {
+      "name": "VIRUS 172",
+      "path": "wavetables/virus/Virus_WT_172.wav",
+      "frameSize": 5890,
+      "frames": 1,
+      "sha256": "f111ccec9c2a8b8e7787a1584bad37581e43f784f715071ca0b7b4fbf3bffb3c"
+    },
+    {
+      "name": "VIRUS 173",
+      "path": "wavetables/virus/Virus_WT_173.wav",
+      "frameSize": 5154,
+      "frames": 1,
+      "sha256": "cc4183184554ecb5a0a9ece5f08504a920d14a3daf58657579a1d0984b5e1e6d"
+    },
+    {
+      "name": "VIRUS 174",
+      "path": "wavetables/virus/Virus_WT_174.wav",
+      "frameSize": 5974,
+      "frames": 1,
+      "sha256": "c29080c925aece9c2aa5e3ecbcf9569ae03570907ce427b5133ee875b4b15260"
+    },
+    {
+      "name": "VIRUS 175",
+      "path": "wavetables/virus/Virus_WT_175.wav",
+      "frameSize": 5366,
+      "frames": 1,
+      "sha256": "4a39f4b3023a8a391bee22d5d7aee2979065df98d79466f2942a29fdf7330f13"
+    },
+    {
+      "name": "VIRUS 176",
+      "path": "wavetables/virus/Virus_WT_176.wav",
+      "frameSize": 4866,
+      "frames": 1,
+      "sha256": "dfc97f7d954289356e622eab7096a180c7f9adfe6c418bc15089a3ffe54235ac"
+    },
+    {
+      "name": "VIRUS 177",
+      "path": "wavetables/virus/Virus_WT_177.wav",
+      "frameSize": 6686,
+      "frames": 1,
+      "sha256": "4d5b2c9bbd418695cf20797b6d86d40377e59d1fee75e5324b9c2028c47330c8"
+    },
+    {
+      "name": "VIRUS 178",
+      "path": "wavetables/virus/Virus_WT_178.wav",
+      "frameSize": 5082,
+      "frames": 1,
+      "sha256": "41055d01ba1ad227588d40ebba03d74980552b95a38c93b2fc926202346b0009"
+    },
+    {
+      "name": "VIRUS 179",
+      "path": "wavetables/virus/Virus_WT_179.wav",
+      "frameSize": 5168,
+      "frames": 1,
+      "sha256": "16abcd2c0bc2fae4650808493345bf9be2c57adce0ecd638d2c57921cacbbf22"
+    },
+    {
+      "name": "VIRUS 180",
+      "path": "wavetables/virus/Virus_WT_180.wav",
+      "frameSize": 6796,
+      "frames": 1,
+      "sha256": "9a8cdabbc5a8892df9079cd6ebd979ce5a42e664f9e5d6c4f8c661755e213fc8"
+    },
+    {
+      "name": "VIRUS 181",
+      "path": "wavetables/virus/Virus_WT_181.wav",
+      "frameSize": 4844,
+      "frames": 1,
+      "sha256": "9a74a88771546746d80778e019d96da6841e243d8a944f34cdf8fba5484adcc5"
+    },
+    {
+      "name": "VIRUS 182",
+      "path": "wavetables/virus/Virus_WT_182.wav",
+      "frameSize": 5116,
+      "frames": 1,
+      "sha256": "c6e8d67f382f15bef14fb3465646280b90964e38c0643a1d81f634d2eb7773ac"
+    },
+    {
+      "name": "VIRUS 183",
+      "path": "wavetables/virus/Virus_WT_183.wav",
+      "frameSize": 6018,
+      "frames": 1,
+      "sha256": "e6f02f3203b7bb2e10addf5f62d0f4c73ba243df8e6106791e4144c18a90172a"
+    },
+    {
+      "name": "VIRUS 184",
+      "path": "wavetables/virus/Virus_WT_184.wav",
+      "frameSize": 5114,
+      "frames": 1,
+      "sha256": "c45dc019401737b8fec275d9892a9a17de56e01c1d8973e5b888e4e15f77fe8d"
+    },
+    {
+      "name": "VIRUS 185",
+      "path": "wavetables/virus/Virus_WT_185.wav",
+      "frameSize": 5124,
+      "frames": 1,
+      "sha256": "1dc591a8ff4a58535ec4e57ec64016fef859f9eed0b44dd37ebbf5da78c02e23"
+    },
+    {
+      "name": "VIRUS 186",
+      "path": "wavetables/virus/Virus_WT_186.wav",
+      "frameSize": 5754,
+      "frames": 1,
+      "sha256": "4315a296c9e92f532b7aefbab83da62e48ae367b8f2502995f4ad7d739ba45b8"
+    },
+    {
+      "name": "VIRUS 187",
+      "path": "wavetables/virus/Virus_WT_187.wav",
+      "frameSize": 5526,
+      "frames": 1,
+      "sha256": "391db61cf5b523da552ecefd36bd7deac2351cc46cfc0ebf12edb6353dc2bad8"
+    },
+    {
+      "name": "VIRUS 188",
+      "path": "wavetables/virus/Virus_WT_188.wav",
+      "frameSize": 5186,
+      "frames": 1,
+      "sha256": "27a568bbf9ce92744cbe1c2730c1bc9e2d5909cf062d9bd16738c422fb2e7ea7"
+    },
+    {
+      "name": "VIRUS 189",
+      "path": "wavetables/virus/Virus_WT_189.wav",
+      "frameSize": 4964,
+      "frames": 1,
+      "sha256": "1bb7372c1d046ebd93313bbadc4a0d2040265a9013a6321b11fac77eb88a9172"
+    },
+    {
+      "name": "VIRUS 190",
+      "path": "wavetables/virus/Virus_WT_190.wav",
+      "frameSize": 4892,
+      "frames": 1,
+      "sha256": "504406386affddfd2637b770731bc0076de71ceff823b89d34e628963ec5b4ea"
+    },
+    {
+      "name": "VIRUS 191",
+      "path": "wavetables/virus/Virus_WT_191.wav",
+      "frameSize": 4894,
+      "frames": 1,
+      "sha256": "23800727c7d8d1b7b4dd74a0577cbb6e255af94a9f2f00b4d0c43b5f2438fcce"
+    },
+    {
+      "name": "VIRUS 192",
+      "path": "wavetables/virus/Virus_WT_192.wav",
+      "frameSize": 6076,
+      "frames": 1,
+      "sha256": "ecd1aef0196015e03e16c17314073c333e11bb4072e31e4ca2c88342de6b2157"
+    },
+    {
+      "name": "VIRUS 193",
+      "path": "wavetables/virus/Virus_WT_193.wav",
+      "frameSize": 5050,
+      "frames": 1,
+      "sha256": "73b234e0c1e4de2a00927c154a501cdd4bfef54e2ed177c2a7310f4fdea79eb4"
+    },
+    {
+      "name": "VIRUS 194",
+      "path": "wavetables/virus/Virus_WT_194.wav",
+      "frameSize": 4898,
+      "frames": 1,
+      "sha256": "4302f32e605e90108201b783979dde5fde39c4cdd087b4c18be78364cebe9fd3"
+    },
+    {
+      "name": "VIRUS 195",
+      "path": "wavetables/virus/Virus_WT_195.wav",
+      "frameSize": 5360,
+      "frames": 1,
+      "sha256": "3f0be71c60afcf0bd8a1aff2f64be675709efe006349852e32727b8e5b934169"
+    },
+    {
+      "name": "VIRUS 196",
+      "path": "wavetables/virus/Virus_WT_196.wav",
+      "frameSize": 5092,
+      "frames": 1,
+      "sha256": "d0ecace735c8b8e57f0ebec6dd9eb119d65f4e52b63200f38d4dc11d4f50bfce"
+    },
+    {
+      "name": "VIRUS 197",
+      "path": "wavetables/virus/Virus_WT_197.wav",
+      "frameSize": 5278,
+      "frames": 1,
+      "sha256": "a0a381f5a3e57815ddb573d6330f1ded1a1e6c166f7be069651fcfbbb73128a4"
+    },
+    {
+      "name": "VIRUS 198",
+      "path": "wavetables/virus/Virus_WT_198.wav",
+      "frameSize": 4972,
+      "frames": 1,
+      "sha256": "b6e0629fca1e2c0ed8f56d24bf6442411e85ee4f5748fa111fe9d32a4c7844e7"
+    },
+    {
+      "name": "VIRUS 199",
+      "path": "wavetables/virus/Virus_WT_199.wav",
+      "frameSize": 4806,
+      "frames": 1,
+      "sha256": "dc23c93765352e3e3c56ed86a80ef1159951a08e38ff5cec8e636a0ab81ea346"
+    },
+    {
+      "name": "VIRUS 200",
+      "path": "wavetables/virus/Virus_WT_200.wav",
+      "frameSize": 4858,
+      "frames": 1,
+      "sha256": "813e1c21911f8e44251a9e4a9a003f6bf21e0f52382bbe0b77cecf86c67b8fa1"
+    },
+    {
+      "name": "GROWL 002",
+      "path": "wavetables/growl/Spectral Growl 002.wav",
+      "frameSize": 2048,
+      "frames": 3,
+      "sha256": "8dff7df04d4d54621994880bb8d2de04853a49dba5f084a1378912b748423d7b"
+    },
+    {
+      "name": "GROWL 001",
+      "path": "wavetables/growl/Spectral Growl 001.wav",
+      "frameSize": 2048,
+      "frames": 11,
+      "sha256": "a0725d32378da2093ed78accf8e3973e0edbabe4c1c14ac1e07e871661f80eb9"
+    },
+    {
+      "name": "GROWL 003",
+      "path": "wavetables/growl/Spectral Growl 003.wav",
+      "frameSize": 2048,
+      "frames": 2,
+      "sha256": "dcba48f81e03fc354226a3bba81fb43026d071236b48c3140337bebe1193e688"
+    },
+    {
+      "name": "GROWL 004",
+      "path": "wavetables/growl/Spectral Growl 004.wav",
+      "frameSize": 2048,
+      "frames": 5,
+      "sha256": "edc250b00d80d44f806924f7781b2767fdc9564205a88aee503a534fdb2672e6"
+    },
+    {
+      "name": "GROWL 005",
+      "path": "wavetables/growl/Spectral Growl 005.wav",
+      "frameSize": 2048,
+      "frames": 32,
+      "sha256": "f872db7abd36dace4c8207fffb07173c9cbe7d24aca1ec7955a2d4e697ca10cb"
+    },
+    {
+      "name": "GROWL 006",
+      "path": "wavetables/growl/Spectral Growl 006.wav",
+      "frameSize": 2048,
+      "frames": 8,
+      "sha256": "29d34fd59af573639662abff713c7c37fa096d324794abccf91f72d404a10b5e"
+    },
+    {
+      "name": "GROWL 007",
+      "path": "wavetables/growl/Spectral Growl 007.wav",
+      "frameSize": 2048,
+      "frames": 7,
+      "sha256": "f4ccc94db91faddbcc80e9f7c62d874138cf88a01d63c6f5e96f4b21bffee6fa"
+    },
+    {
+      "name": "GROWL 008",
+      "path": "wavetables/growl/Spectral Growl 008.wav",
+      "frameSize": 2048,
+      "frames": 39,
+      "sha256": "7585926acc2a42ed32b758e57ad7a556aaf081adfd95ad878e82a14ebca2aebf"
+    },
+    {
+      "name": "GROWL 009",
+      "path": "wavetables/growl/Spectral Growl 009.wav",
+      "frameSize": 2048,
+      "frames": 43,
+      "sha256": "aaef24aaef1e6685499e6d9061870e2764d1ddc1f417a971f1885e58ebe633cc"
+    },
+    {
+      "name": "GROWL 010",
+      "path": "wavetables/growl/Spectral Growl 010.wav",
+      "frameSize": 2048,
+      "frames": 44,
+      "sha256": "4c7ff6b71ab84f954a3adc3d0717f5df92ff5db79798896256bc52214e204156"
+    },
+    {
+      "name": "GROWL 011",
+      "path": "wavetables/growl/Spectral Growl 011.wav",
+      "frameSize": 2048,
+      "frames": 22,
+      "sha256": "df20840410db76617f89843b3d7a6e500a5a5ea445a24ecb9c893f4e78019d11"
+    },
+    {
+      "name": "GROWL 012",
+      "path": "wavetables/growl/Spectral Growl 012.wav",
+      "frameSize": 2048,
+      "frames": 2,
+      "sha256": "12965f37f7ca69f06f72bf9ef8c72150e65120f542585dfdb87f043663070d08"
+    },
+    {
+      "name": "GROWL 013",
+      "path": "wavetables/growl/Spectral Growl 013.wav",
+      "frameSize": 2048,
+      "frames": 6,
+      "sha256": "a783765b1a3e2a1b95a63eddf5271e380291febfb405032a3d2372086fa31189"
+    },
+    {
+      "name": "GROWL 014",
+      "path": "wavetables/growl/Spectral Growl 014.wav",
+      "frameSize": 2048,
+      "frames": 11,
+      "sha256": "c9e005ee56087879543c00efbd2dd15f19e61382fa2996fe8f0c5355c369696e"
+    },
+    {
+      "name": "GROWL 015",
+      "path": "wavetables/growl/Spectral Growl 015.wav",
+      "frameSize": 2048,
+      "frames": 11,
+      "sha256": "01ae7e362f671c4954c5f657d2e2928506574eb1fd1e59b9eac27e60d28249fa"
+    }
+  ],
+  "frames": 534,
+  "bytes": 273408,
+  "data_sha256": "16e2dad88fd7e06a5451c37f0274b0ccdd2328ffbfa5da448f5469bdf409d3cc"
+}

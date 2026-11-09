@@ -1,0 +1,17 @@
+# Text is stored with LF line endings; Windows scripts keep CRLF.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary data: never convert or diff as text.
+*.wav binary
+*.fwsc binary
+*.bin binary
+*.elf binary
+*.wasm binary
+*.pcm binary
+*.png binary
+*.jpg binary
+*.ttf binary
+*.zip binary

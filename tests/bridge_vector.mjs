@@ -1,0 +1,6 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const bytes=fs.readFileSync(new URL('../build/bridge/animate-bridge.wasm',import.meta.url));
+async function run(shape,sync=0,division=0,tempo=120){const{instance:{exports:e}}=await WebAssembly.instantiate(bytes);e.ab_init();e.ab_vector_lfo(0,0,shape);e.ab_vector_lfo(0,1,3.125);e.ab_vector_lfo(0,2,.8);e.ab_vector_lfo(0,3,sync);e.ab_vector_lfo(0,4,division);e.ab_tempo(tempo);const handle=e.ab_owned_note_on(60,100);let hash=2166136261;for(let n=0;n<1800;n++){e.ab_render(e.ab_output(),32);for(const s of new Int32Array(e.memory.buffer,e.ab_output(),64)){assert.ok(Math.abs(s)<=32768);hash=Math.imul(hash^s,16777619)>>>0;}}return{hash,e,handle};}
+const shapes=new Set();for(let i=0;i<5;i++)shapes.add((await run(i)).hash);assert.equal(shapes.size,5);assert.notEqual((await run(0,1,0)).hash,(await run(0,1,3)).hash);assert.notEqual((await run(0,1,0,90)).hash,(await run(0,1,0,120)).hash);
+const{e,handle}=await run(1);assert.equal(e.ab_voice_pitch(handle,600025),1);e.ab_panic();assert.equal(e.ab_active(),0);assert.equal(e.ab_voice_pitch(handle,600025),0);assert.equal(e.ab_polyphony(16),1);
+console.log('PASS: five global vector shapes, tempo/division sync, microtonal API, panic invalidation.');

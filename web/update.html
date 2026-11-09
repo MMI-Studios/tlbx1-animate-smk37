@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Animate 982 update</title>
+<style>body{background:#101018;color:#eee;font:16px system-ui;max-width:800px;margin:40px auto;padding:20px}button,input{font:inherit;margin:12px;padding:10px}pre{white-space:pre-wrap}a{color:#adbdff}</style>
+<h1>Install Animate 982 from custom SMK firmware</h1>
+<p>For your SMK-37 Pro running our SMK-37 / ota-SMK-37 custom firmware. Close M-UPGRADE and other MIDI apps first. Keep USB and power connected. Opening this page does not access the device.</p>
+<p>Select <strong>animate-update.bin</strong> from animate-firmware/build/smk. Raw applications and .fwsc files are rejected.</p>
+<input id="file" type="file" accept=".bin" disabled><button id="check" disabled>Connect and check</button>
+<p>If the running firmware does not answer: refresh the ports, select your SMK's <strong>Melodee</strong> output, then start its device updater. This stops sound and loses unsaved edits, but does not program firmware.</p>
+<button id="ports" disabled>Refresh MIDI ports</button><select id="output" aria-label="SMK MIDI output" disabled><option value="">Select SMK MIDI output</option></select>
+<button id="loader" disabled>Start device updater</button>
+<p><label><input id="confirm" type="checkbox">I have saved what I need and want to replace the application with this hardware-unverified Animate build.</label></p>
+<button id="install" disabled>Install / resume Animate 982</button>
+<p>Programming verifies the application before restarting. Interrupted programming may require hardware recovery. Do not disconnect during transfer.</p>
+<pre id="status" role="status">Loading reviewed release metadata…</pre><p><a href="./">Simulator</a></p><script type="module" src="update.js?v=loader-entry1"></script></html>

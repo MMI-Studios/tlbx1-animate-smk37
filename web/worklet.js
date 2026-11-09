@@ -1,0 +1,38 @@
+// Actual C runtime only. No JavaScript oscillator or substitute project state.
+class AnimateProcessor extends AudioWorkletProcessor{
+ constructor(options){super();this.clock=0;this.ticks=0;this.port.onmessage=e=>this.command(e.data);try{this.e=new WebAssembly.Instance(options.processorOptions.module).exports;this.e.af_init();this.port.postMessage({type:'ready',font:new Uint8Array(this.e.memory.buffer,this.e.ac_display_font(),480).slice()});this.snapshot();}catch(error){this.port.postMessage({type:'error',error:String(error)});}}
+ text(pointer){if(!pointer)return'';const a=new Uint8Array(this.e.memory.buffer);let s='';for(let i=pointer;i<a.length&&i<pointer+255&&a[i];i++)s+=String.fromCharCode(a[i]);return s;}
+ command(message){const {id,command:c}=message;try{const e=this.e;if(!e)throw Error('Runtime unavailable');let result=1;switch(c[0]){
+ case'button':e.af_button(c[1],c[2],c[3]||this.clock*1000/44100);break;case'pad':e.af_pad(c[1],c[2]);break;case'key':e.af_key(c[1],c[2]);break;
+ case'encoder':e.af_encoder(c[1],c[2]);break;case'fader':e.af_fader(c[1],c[2]);break;case'wheel':e.af_wheel(c[1],c[2]);break;case'sustain':e.af_midi(0xb0,64,c[1]?127:0);break;case'release':e.af_release();break;
+ case'set':if(c[3]===12&&c[4]===20){result=e.af_patch_load(c[5]);if(result)e.af_control_set(0,12);}else result=e.af_set(...c.slice(1));if(!result)throw Error('This value is unavailable or outside its allowed range.');break;
+ case'control':result=e.af_control_set(c[1],c[2]);if(!result)throw Error('Control selection unavailable.');break;
+ case'patch-select':if(!e.af_patch_select(c[1]))throw Error('Patch selection is unavailable during an operation.');break;
+ case'patch-load':if(e.af_patch_load(c[1]))e.af_control_set(0,12);else throw Error('Patch load is unavailable during an operation.');break;
+ case'patch-save':if(e.af_patch_save(c[1]))e.af_control_set(0,12);else throw Error('Patch save is unavailable during an operation.');break;
+ case'patch-confirm':e.af_pad(0,1);e.af_pad(0,0);break;
+ case'patch-cancel':e.af_pad(1,1);e.af_pad(1,0);break;
+ case'patch-slots':e.af_patch_slots(c[1]);break;
+ case'patch-complete':{const bytes=c[3]?new Uint8Array(c[3]):null;if(bytes){if(bytes.length>1024)throw Error('Patch exceeds the runtime buffer.');new Uint8Array(e.memory.buffer,e.af_patch_buffer(),bytes.length).set(bytes);}e.af_patch_complete(c[1],c[2]?1:0,bytes?.length||0);break;}
+ case'export':{const size=e.af_project_size();if(!size||size>1048576)throw Error('Project export unavailable.');const bytes=new Uint8Array(size);for(let at=0;at<size;){const n=Math.min(1024,size-at),read=e.af_project_read(at,n);if(read!==n)throw Error('Incomplete export.');bytes.set(new Uint8Array(e.memory.buffer,e.af_project_buffer(),n),at);at+=n;}result=bytes.buffer;break;}
+ case'import':{const bytes=new Uint8Array(c[1]);if(!e.af_project_begin(bytes.length))throw Error('Unsupported project size.');for(let at=0;at<bytes.length;at+=1024){const n=Math.min(1024,bytes.length-at);new Uint8Array(e.memory.buffer,e.af_project_buffer(),n).set(bytes.subarray(at,at+n));if(!e.af_project_write(at,n))throw Error('Project upload rejected.');}if(!e.af_project_commit())throw Error('Project validation failed; running project retained.');break;}
+ default:throw Error('Unknown control command.');}
+ if(id)this.port.postMessage({type:'reply',id,result});this.snapshot();}catch(error){this.port.postMessage({type:'error',id,error:String(error.message||error)});}}
+ snapshot(){const e=this.e;if(!e)return;const controls=Array.from({length:16},(_,i)=>e.af_control_get(i));const [view,lane,slot,page,paramBank,randomBank,routeBank,globalPage,modBank,visualizer,shift,preset]=controls;
+ const get=(field,index=0,l=lane,s=slot)=>e.af_get(l,s,field,index),label=(field,index=0,l=lane,s=slot)=>this.text(e.af_label(l,s,field,index));
+ e.af_draw();const size=e.ac_display_count()*e.ac_display_stride();const display=new Uint8Array(e.memory.buffer,e.ac_display_data(),size).slice();
+ const globals=Array.from({length:42},(_,i)=>get(12,i));const parameters=Array.from({length:20},(_,i)=>get(0,i));
+ const patch={dirty:!!e.af_patch_dirty(),selection:e.af_patch_selection(),confirm:e.af_patch_confirm_kind(),status:e.af_patch_status(),notice:e.af_patch_notice(),slot:e.af_patch_slot(),occupied:!!e.af_patch_occupied(),pending:e.af_patch_pending()};
+ if(patch.pending&&this.patchRequest!==e.af_patch_request_id()){this.patchRequest=e.af_patch_request_id();const bytes=patch.pending===2?new Uint8Array(e.memory.buffer,e.af_patch_buffer(),e.af_patch_bytes()).slice().buffer:null;this.port.postMessage({type:'patch-storage',id:this.patchRequest,operation:patch.pending,slot:e.af_patch_slot(),bytes});}
+ let knobLabels=Array(8).fill('Inactive');if(view===11)knobLabels[0]='Browse patches';else if(view===1)knobLabels=knobLabels.map((_,i)=>label(0,paramBank*8+i));
+ else if(view===2)knobLabels=knobLabels.map((_,i)=>'ABCD'[i>>1]+(i%2?' PAN':' VOL'));
+ else if(view===4)knobLabels=knobLabels.map((_,i)=>label(9,randomBank*8+i));else if(view===5)knobLabels=knobLabels.map((_,i)=>label(10,routeBank?8+i:i));
+ else if(view===7)knobLabels=knobLabels.map((_,i)=>label(12,globalPage*8+i));else if(view===8)knobLabels=knobLabels.map((_,i)=>label(13,modBank*8+i));else if(view===9)knobLabels=knobLabels.map((_,i)=>label(14,i));
+ else if(view===0)knobLabels=['Note','Velocity','Gate','Probability','Inactive','Inactive','Inactive','Inactive'];
+ let faderLabels=Array(4).fill('Inactive'),faderValues=[0,0,0,0];if(view===1){faderLabels=['Attack','Decay','Sustain','Release'].map(x=>'ABCD'[slot]+' '+x);faderValues=[16,17,18,19].map((p,i)=>get(0,p)/[5,10,1,10][i]*127);}else if(view===2){const bank=controls[15];faderLabels=faderLabels.map((_,i)=>bank*4+i<10?'Lane '+(bank*4+i+1):'Inactive');faderValues=faderValues.map((_,i)=>bank*4+i<10?get(1,0,bank*4+i)*127:0);}
+ const homePads=['Slot A','Slot B','Slot C','Slot D','X MOD','Y MOD','Mixer','Sequencer','Patches','Global','Random masks','Random routing','Effects','Unused','Save patch','Visualizers'];
+ const padLabel=i=>view===10?homePads[i]:view===12?(['Confirm','Cancel'][i]||'Inactive'):view===11?(['Load patch','Cancel','Save patch'][i]||'Inactive'):view===3?'Select lane '+(i+1):[1,4,8].includes(view)&&i<6?(i<4?'Select slot '+'ABCD'[i]:i===4?'X MOD':'Y MOD'):'Pad '+(i+1);
+ this.port.postMessage({type:'state',state:{patch,ui:{view,lane,slot,step_page:page,paramBank,randomBank,routeBank,globalPage,modBank,visualizer,shift,preset},playing:!!get(6),position:get(7),hold:!!get(8),globals,parameters,parameterLabels:parameters.map((_,i)=>label(0,i)),parameterText:parameters.map((_,i)=>this.text(e.af_value(lane,slot,0,i))),padLights:e.af_pad_lights(this.clock*1000/44100),buttonLights:e.af_button_lights(),padLabels:Array.from({length:16},(_,i)=>padLabel(i)),knobLabels,faderLabels,faderValues,fadersEnabled:view===1||view===2,wheels:[globals[40]||0,globals[41]||0],display,visual:new Int16Array(e.memory.buffer,e.af_visual_data(),256).slice(),spectrum:new Uint16Array(e.memory.buffer,e.af_visual_bins(),32).slice()}});}
+ process(_inputs,outputs){const out=outputs[0];if(!this.e||!out?.length)return true;const n=out[0].length;try{this.e.af_render(n);const data=new Float32Array(this.e.memory.buffer,this.e.af_output(),n*2);let energy=0;for(let i=0;i<n;i++){const l=data[i*2],r=data[i*2+1];out[0][i]=l;if(out[1])out[1][i]=r;energy+=l*l+r*r;}this.clock+=n;this.ticks+=n;if(this.ticks>=2205){this.ticks=0;this.port.postMessage({type:'meter',rms:Math.sqrt(energy/(n*2))});this.snapshot();}}catch(error){this.port.postMessage({type:'error',error:String(error)});this.e=null;}return true;}
+}
+registerProcessor('animate-runtime',AnimateProcessor);

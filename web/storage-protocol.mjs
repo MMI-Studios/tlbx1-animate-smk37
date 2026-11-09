@@ -1,0 +1,17 @@
+export const BACKUP_BYTES=135168;
+export function crc32(bytes){let c=0xffffffff;for(const b of bytes){c^=b;for(let k=0;k<8;k++)c=(c>>>1)^((0-(c&1))&0xedb88320);}return(~c)>>>0;}
+export function put32(n){n>>>=0;return Array.from({length:5},()=>{const x=n&127;n>>>=7;return x;});}
+export function get32(p,off){if(off+5>p.length||p[off+4]>15)throw Error('Invalid numeric response');let n=0;for(let k=0;k<5;k++)n|=p[off+k]<<(7*k);return n>>>0;}
+export function request(command,id,values=[]){return new Uint8Array([125,65,70,1,command,id&127,(id>>7)&127,...values.flatMap(put32)]);}
+export function response(bytes,command,id){const p=bytes[0]===240?bytes.subarray(1,bytes.length-1):bytes;if(p.length<8||p[0]!==125||p[1]!==65||p[2]!==70||p[3]!==1||p[4]!== (command|64)||p[5]!== (id&127)||p[6]!==((id>>7)&127))throw Error('Unrelated device response');if(p[7])throw Error(['','Unsupported device','Patch operation busy','Invalid or expired backup request','Flash I/O failed','Storage changed since backup','Unknown command'][p[7]]||'Device rejected command');return p.subarray(8);}
+export class StorageClient{
+ constructor(exchange){this.exchange=exchange;this.id=0;this.backup=null;this.verified=false;}
+ async call(cmd,values=[]){const id=++this.id%16384;const req=request(cmd,id,values);return response(await this.exchange(req),cmd,id);}
+ async status(){const p=await this.call(1);if(p.length!==35)throw Error('Invalid status response');const v=Array.from({length:7},(_,i)=>get32(p,i*5));return{supported:v[0],mounted:v[1],unit:v[2],nonce:v[3],bytes:v[4],offset:v[5],crc:v[6]};}
+ async readBackup(progress=()=>{}){this.backup=null;this.verified=false;const status=await this.status();if(!status.supported||status.bytes!==BACKUP_BYTES)throw Error('Unsupported storage layout');const start=await this.call(2);if(start.length!==15||get32(start,5)!==BACKUP_BYTES||get32(start,10)!==0)throw Error('Invalid backup session');const nonce=get32(start,0),data=new Uint8Array(BACKUP_BYTES);
+  for(let offset=0;offset<data.length;offset+=128){const count=Math.min(128,data.length-offset);let p;for(let attempt=0;;attempt++){try{p=await this.call(3,[nonce,offset,count]);break;}catch(e){if(attempt>=2)throw e;}}if(p.length!==15+count*2||get32(p,0)!==nonce||get32(p,5)!==offset||get32(p,10)!==count)throw Error('Backup chunk mismatch');for(let i=0;i<count;i++){if(p[16+i*2]>1)throw Error('Invalid byte encoding');data[offset+i]=p[15+i*2]|p[16+i*2]<<7;}progress((offset+count)/data.length);}
+  const final=await this.status(),crc=crc32(data);if(final.unit!==status.unit||final.nonce!==nonce||final.offset!==data.length||final.crc!==crc)throw Error('Complete device backup verification failed');this.backup={data,nonce,crc,unit:status.unit};return this.backup;
+ }
+ verifySavedFile(bytes){this.verified=false;if(!this.backup||bytes.length!==this.backup.data.length)throw Error('Choose the saved backup from this session');for(let i=0;i<bytes.length;i++)if(bytes[i]!==this.backup.data[i])throw Error('Saved backup does not match device data');this.verified=true;}
+ async provision(confirmation){if(!this.backup||!this.verified||confirmation!=='ERASE')throw Error('Verified saved backup and explicit ERASE confirmation required');const b=this.backup;this.verified=false;await this.call(4,[b.nonce,b.crc,b.data.length,0x434f4e46]);const status=await this.status();if(!status.mounted||status.unit!==b.unit)throw Error('Storage initialization did not verify');return status;}
+}

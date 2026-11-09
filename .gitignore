@@ -1,0 +1,12 @@
+/build/
+/recovery-backups/
+/web/*.wasm
+/web/*.wasm.tmp*
+/web/update-support/
+/web/update-release.json
+__pycache__/
+.zig-cache/
+/tools-local/
+
+# M-VAVE's official firmware: supply your own copy (see assets/stock/README.md).
+/assets/stock/*.fwsc
